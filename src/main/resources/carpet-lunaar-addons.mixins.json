@@ -1,10 +1,10 @@
 {
   "required": true,
-  "package": "carpet_extension.mixins",
+  "package": "carpetlunaaraddons.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "CrashReport_noopMixin",
-    "MobEntity_makarenaMixin"
+    "CarpetServerMixin",
+    "PortalForcerMixin"
   ],
   "client": [
   ],

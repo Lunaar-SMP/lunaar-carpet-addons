@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "carpet-extension",
-  "version": "1.4.6",
+  "id": "lunaar-carpet-addons",
+  "version": "0.1.0",
 
-  "name": "Example Carpet Extension Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Lunaar Carpet Addons",
+  "description": "Random rules for the Lunaar server",
   "authors": [
-    "Me!"
+    "Copetan ..."
   ],
   "contact": {
     "homepage": "https://web.me/",
     "sources": "https://github.com/gnembon/fabric-carpet-extension-example-mod"
   },
 
-  "license": "CC0-1.0",
+  "license": "GPL-3.0",
   "icon": "assets/modid/icon.png",
 
   "environment": "*",
@@ -22,7 +22,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "carpet-lunaar-addons.mixins.json"
   ],
 
   "depends": {
@@ -32,5 +32,8 @@
   },
   "suggests": {
     "flamingo": "*"
+  },
+  "custom": {
+    "modmenu:parent": "carpet"
   }
 }
