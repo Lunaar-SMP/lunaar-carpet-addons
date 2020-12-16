@@ -11,9 +11,9 @@ public class CarpetLunaarSettings {
     public static final String LUNAAR = "Lunaar";
 
     @Rule(
-            desc="Re-enables portal POIs without portal blocks",
+            desc="Re-adds teleporting to portal POIs without portal blocks",
             extra = {"Update suppressor go brrr"},
             category = {SURVIVAL, EXPERIMENTAL, LUNAAR})
-    public static boolean oldNetherPortalPoi = false;
+    public static boolean teleportToPoiWithoutPortals = false;
 
 }

@@ -1,8 +1,8 @@
 # Carpet Lunaar Addons
 
 ## Rules
-### oldNetherPortalPoi
-Re-enables portal POIs without portal blocks
+### teleportToPoiWithoutPortals
+Re-adds teleporting to portal POIs without portal blocks
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
