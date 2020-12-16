@@ -54,8 +54,7 @@ public class PortalForcerMixin
             at = @At(
                     value = "INVOKE",
                     target = "net/minecraft/class_5459.method_30574(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction$Axis;ILnet/minecraft/util/math/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/class_5459$class_5460;"
-            ),
-            remap = false
+            )
     )
     private class_5459.class_5460 dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
                                               Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
