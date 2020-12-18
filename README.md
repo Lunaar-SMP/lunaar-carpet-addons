@@ -7,3 +7,10 @@ Re-adds teleporting to portal POIs without portal blocks
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `EXPERIMENTAL`, `SURVIVAL`, `LUNAAR`
+
+### forceLoadProjectiles
+Prevents projectiles from being deleted when moving into unloaded chunks
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `EXPERIMENTAL`, `SURVIVAL`, `LUNAAR`

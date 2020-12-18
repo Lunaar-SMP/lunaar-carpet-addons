@@ -13,7 +13,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
-version = project.minecraft_version+'-'+project.mod_version
+version = project.minecraft_version+'-'+project.mod_version+'-test'//+getDate()
 group = project.maven_group
 
 minecraft {
@@ -41,6 +41,10 @@ processResources {
 	from(sourceSets.main.resources.srcDirs) {
 		exclude "fabric.mod.json"
 	}
+}
+
+static def getDate() {
+	return new Date().format('yyyyMMddHHmmss')
 }
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is

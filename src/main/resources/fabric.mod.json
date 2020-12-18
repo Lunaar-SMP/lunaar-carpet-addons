@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "lunaar-carpet-addons",
-  "version": "0.1.0",
+  "version": "0.2.0",
 
   "name": "Lunaar Carpet Addons",
   "description": "Random rules for the Lunaar server",
@@ -13,7 +13,7 @@
     "sources": "https://github.com/Copetan/lunaar-carpet-addons"
   },
 
-  "license": "GPL-3.0",
+  "license": "LGPL-3.0",
   "icon": "assets/modid/icon.png",
 
   "environment": "*",

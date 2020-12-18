@@ -59,6 +59,8 @@ public class PortalForcerMixin
     private class_5459.class_5460 dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
                                               Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
         return (CarpetLunaarSettings.teleportToPoiWithoutPortals && !this._state.contains(Properties.HORIZONTAL_AXIS)) ?
+                //The i and j arguments are just random numbers I came up with at the spot,
+                //please feel free to make a pull request if you think there are better values for these - Copetan
                 new class_5459.class_5460(blockPos, 1, 1) :
                 class_5459.method_30574(blockPos, axis1, i, axis2, j, predicate);
     }

@@ -13,7 +13,13 @@ public class CarpetLunaarSettings {
     @Rule(
             desc="Re-adds teleporting to portal POIs without portal blocks",
             extra = {"Update suppressor go brrr"},
-            category = {SURVIVAL, EXPERIMENTAL, LUNAAR})
+            category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
+    )
     public static boolean teleportToPoiWithoutPortals = false;
 
+    @Rule(
+            desc = "Prevents projectiles from being deleted when travelling to unloaded chunks",
+            category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
+    )
+    public static boolean forceLoadProjectiles = false;
 }
