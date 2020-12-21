@@ -8,8 +8,8 @@ Re-adds teleporting to portal POIs without portal blocks
 * Required options: `true`, `false`
 * Categories: `EXPERIMENTAL`, `SURVIVAL`, `LUNAAR`
 
-### forceLoadProjectiles
-Prevents projectiles from being deleted when moving into unloaded chunks
+### forceLoadEnderPearls
+Prevents Ender Pearls from being deleted when moving into unloaded chunks
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`

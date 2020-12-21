@@ -18,8 +18,8 @@ public class CarpetLunaarSettings {
     public static boolean teleportToPoiWithoutPortals = false;
 
     @Rule(
-            desc = "Prevents projectiles from being deleted when traveling to unloaded chunks",
+            desc = "Prevents Ender Pearls from being deleted when traveling to unloaded chunks",
             category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
     )
-    public static boolean forceLoadProjectiles = false;
+    public static boolean forceLoadEnderPearls = false;
 }

@@ -2,7 +2,7 @@ package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
 import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,8 +19,8 @@ public class ServerWorldMixin
 			)
 	)
 	private boolean conditionAdder(Entity entity) {
-		return CarpetLunaarSettings.forceLoadProjectiles ?
-				(entity.teleportRequested() || (entity instanceof ProjectileEntity)) :
+		return CarpetLunaarSettings.forceLoadEnderPearls ?
+				(entity.teleportRequested() || (entity instanceof EnderPearlEntity)) :
 				entity.teleportRequested();
 	}
 }
