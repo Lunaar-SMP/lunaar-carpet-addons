@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "lunaar-carpet-addons",
-  "version": "0.2.1",
+  "version": "0.3.0",
 
   "name": "Lunaar Carpet Addons",
   "description": "Random rules for the Lunaar server",

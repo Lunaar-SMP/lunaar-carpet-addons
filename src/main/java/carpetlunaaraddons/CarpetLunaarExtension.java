@@ -15,8 +15,7 @@ public class CarpetLunaarExtension implements CarpetExtension
     }
 
     @Override
-    public void onGameStarted()
-    {
+    public void onGameStarted() {
         // let's /carpet handle our few simple settings
         CarpetServer.settingsManager.parseSettingsClass(CarpetLunaarSettings.class);
 
@@ -28,34 +27,14 @@ public class CarpetLunaarExtension implements CarpetExtension
     }
 
     @Override
-    public void onServerLoaded(MinecraftServer server)
-    {
+    public void onServerLoaded(MinecraftServer server) {
         // reloading of /carpet settings is handled by carpet
         // reloading of own settings is handled as an extension, since we claim own settings manager
     }
 
-    @Override
-    public void onTick(MinecraftServer server)
-    {
-        // no need to add this.
-    }
 
     @Override
-    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher)
-    {
+    public void registerLoggers() {
 
-    }
-
-
-    @Override
-    public void onPlayerLoggedIn(ServerPlayerEntity player)
-    {
-        //
-    }
-
-    @Override
-    public void onPlayerLoggedOut(ServerPlayerEntity player)
-    {
-        //
     }
 }

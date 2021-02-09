@@ -7,11 +7,12 @@ import static carpet.settings.RuleCategory.*;
 /**
  * Here is your example Settings class you can plug to use carpetmod /carpet settings command
  */
-public class CarpetLunaarSettings {
+public class CarpetLunaarSettings
+{
     public static final String LUNAAR = "Lunaar";
 
     @Rule(
-            desc="Re-adds teleporting to portal POIs without portal blocks",
+            desc = "Re-adds teleporting to portal POIs without portal blocks",
             extra = {"Update suppressor go brrr"},
             category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
     )
@@ -22,4 +23,10 @@ public class CarpetLunaarSettings {
             category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
     )
     public static boolean forceLoadEnderPearls = false;
+
+    @Rule(
+            desc = "Allows drowned to actually use enchanted tridents they are holding",
+            category = {SURVIVAL, LUNAAR}
+    )
+    public static boolean drownedUseEnchantedTridents = false;
 }

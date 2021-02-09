@@ -6,8 +6,10 @@
     "AreaHelperMixin",
     "CarpetServerMixin",
     "ClientWorldMixin",
+    "DrownedEntityMixin",
     "PortalForcerMixin",
-    "ServerWorldMixin"
+    "ServerWorldMixin",
+    "TridentEntityMixin"
   ],
   "client": [
   ],
