@@ -25,7 +25,7 @@ public class CarpetLunaarSettings
     public static boolean forceLoadEnderPearls = false;
 
     @Rule(
-            desc = "Allows drowned to actually use enchanted tridents they are holding",
+            desc = "Allows tridents thrown by drowned use the enchantments on the trident held by said drowned",
             category = {SURVIVAL, LUNAAR}
     )
     public static boolean drownedUseEnchantedTridents = false;

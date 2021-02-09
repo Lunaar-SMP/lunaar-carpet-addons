@@ -14,3 +14,10 @@ Prevents Ender Pearls from being deleted when moving into unloaded chunks
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `EXPERIMENTAL`, `SURVIVAL`, `LUNAAR`
+
+### drownedUseEnchantedTridents
+Allows tridents thrown by drowned use the enchantments on the trident held by said drowned
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `SURVIVAL`, `LUNAAR`
