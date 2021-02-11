@@ -10,6 +10,7 @@ import static carpet.settings.RuleCategory.*;
 public class CarpetLunaarSettings
 {
     public static final String LUNAAR = "Lunaar";
+    public static final String COMBAT = "Combat";
 
     @Rule(
             desc = "Re-adds teleporting to portal POIs without portal blocks",
@@ -29,4 +30,11 @@ public class CarpetLunaarSettings
             category = {SURVIVAL, LUNAAR}
     )
     public static boolean drownedUseEnchantedTridents = false;
+
+    @Rule(
+            desc = "Backports returning Loyalty tridents to their owner when thrown into the void",
+            extra = {"From Combat Test 7c"},
+            category = {SURVIVAL, COMBAT, LUNAAR}
+    )
+    public static boolean voidedLoyaltyTridentsReturn = false;
 }

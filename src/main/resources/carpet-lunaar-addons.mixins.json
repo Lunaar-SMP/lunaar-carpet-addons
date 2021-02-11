@@ -9,7 +9,9 @@
     "DrownedEntityMixin",
     "PortalForcerMixin",
     "ServerWorldMixin",
-    "TridentEntityMixin"
+    "TridentEntityMixin",
+    "accessors.EntityAccessorMixin",
+    "accessors.PersistentProjectileEntityAccessorMixin"
   ],
   "client": [
   ],
