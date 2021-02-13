@@ -1,0 +1,32 @@
+package carpetlunaaraddons.mixins;
+
+import carpetlunaaraddons.CarpetLunaarSettings;
+import carpetlunaaraddons.helpers.GetAttackDamageHelper;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+
+@Mixin(PlayerEntity.class)
+public class PlayerEntityMixin
+{
+	@Redirect(
+			method = "attack",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F",
+					ordinal = 0
+			)
+	)
+	public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, Entity target) {
+		if (CarpetLunaarSettings.impalingAffectsMobsInWater)
+			return GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity)target);
+		else
+			return EnchantmentHelper.getAttackDamage(stack, ((LivingEntity)target).getGroup());
+	}
+}

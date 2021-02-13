@@ -7,6 +7,8 @@
     "CarpetServerMixin",
     "ClientWorldMixin",
     "DrownedEntityMixin",
+    "MobEntityMixin",
+    "PlayerEntityMixin",
     "PortalForcerMixin",
     "ServerWorldMixin",
     "TridentEntityMixin",

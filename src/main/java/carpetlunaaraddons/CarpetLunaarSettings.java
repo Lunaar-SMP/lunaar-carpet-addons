@@ -37,4 +37,11 @@ public class CarpetLunaarSettings
             category = {SURVIVAL, COMBAT, LUNAAR}
     )
     public static boolean voidedLoyaltyTridentsReturn = false;
+
+    @Rule(
+            desc = "Backports applying the Impaling enchantment on any mob that is in water or rain",
+            extra = {"From Combat Test 7c"},
+            category = {SURVIVAL, COMBAT, LUNAAR}
+    )
+    public static boolean impalingAffectsMobsInWater = false;
 }

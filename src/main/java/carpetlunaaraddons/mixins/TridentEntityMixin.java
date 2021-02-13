@@ -1,8 +1,11 @@
 package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
+import carpetlunaaraddons.helpers.GetAttackDamageHelper;
 import carpetlunaaraddons.mixins.accessors.EntityAccessorMixin;
 import carpetlunaaraddons.mixins.accessors.PersistentProjectileEntityAccessorMixin;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
@@ -11,6 +14,7 @@ import net.minecraft.entity.mob.DrownedEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
@@ -48,6 +52,20 @@ public abstract class TridentEntityMixin
 	                          World world, LivingEntity owner, ItemStack stack) {
 		if (CarpetLunaarSettings.drownedUseEnchantedTridents && owner instanceof DrownedEntity) return;
 		tracker.set(trackedData,object);
+	}
+
+	@Redirect(
+			method = "onEntityHit",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
+			)
+	)
+	public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, EntityHitResult hitResult) {
+		if (CarpetLunaarSettings.impalingAffectsMobsInWater)
+			return GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity)hitResult.getEntity());
+		else
+			return EnchantmentHelper.getAttackDamage(stack, ((LivingEntity)hitResult.getEntity()).getGroup());
 	}
 
 	@Override
