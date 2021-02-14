@@ -25,6 +25,7 @@
     "carpet-lunaar-addons.mixins.json"
   ],
 
+  "accessWidener" : "carpet-lunaar-addons.accesswidener",
   "depends": {
     "minecraft": "1.16.x",
     "fabricloader": ">=0.4.0",
