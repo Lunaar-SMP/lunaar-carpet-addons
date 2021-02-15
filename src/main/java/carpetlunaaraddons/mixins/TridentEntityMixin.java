@@ -70,7 +70,7 @@ public abstract class TridentEntityMixin
 
 	@Override
 	protected void destroy() {
-		int i = this.getDataTracker().get(this.getLOYALTY());
+		int i = this.accessorGetDataTracker().get(this.getLOYALTY());
 		if ((i > 0) && CarpetLunaarSettings.voidedLoyaltyTridentsReturn)
 			this.invokerSetNoClip(true);
 		else

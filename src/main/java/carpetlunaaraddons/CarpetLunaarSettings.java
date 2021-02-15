@@ -2,6 +2,8 @@ package carpetlunaaraddons;
 
 import carpet.settings.Rule;
 
+import java.util.function.Supplier;
+
 import static carpet.settings.RuleCategory.*;
 
 /**
@@ -10,7 +12,9 @@ import static carpet.settings.RuleCategory.*;
 public class CarpetLunaarSettings
 {
     public static final String LUNAAR = "Lunaar";
+    public static final String BACKPORT = "Backport";
     public static final String COMBAT = "Combat";
+    public static final String v1_17 = "1.17";
 
     @Rule(
             desc = "Re-adds teleporting to portal POIs without portal blocks",
@@ -34,14 +38,21 @@ public class CarpetLunaarSettings
     @Rule(
             desc = "Backports returning Loyalty tridents to their owner when thrown into the void",
             extra = {"From Combat Test 7c"},
-            category = {SURVIVAL, COMBAT, LUNAAR}
+            category = {SURVIVAL, BACKPORT, COMBAT, LUNAAR}
     )
     public static boolean voidedLoyaltyTridentsReturn = false;
 
     @Rule(
             desc = "Backports applying the Impaling enchantment on any mob that is in water or rain",
             extra = {"From Combat Test 7c"},
-            category = {SURVIVAL, COMBAT, LUNAAR}
+            category = {SURVIVAL, BACKPORT, COMBAT, LUNAAR}
     )
     public static boolean impalingAffectsMobsInWater = false;
+
+    @Rule(
+            desc = "Backports dropping the contents of a Shulker Box item when its item entity is destroyed",
+            extra = {"From 1.17 snapshots"},
+            category = {SURVIVAL, BACKPORT, v1_17, LUNAAR}
+    )
+    public static boolean shulkerBoxItemsDropContents = false;
 }
