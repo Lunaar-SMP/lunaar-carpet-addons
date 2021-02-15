@@ -27,11 +27,18 @@ Backports returning Loyalty tridents to their owner when thrown into the void, f
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `SURVIVAL`, `COMBAT`, `LUNAAR`
+* Categories: `SURVIVAL`, `BACKPORT`, `COMBAT`, `LUNAAR`
 
 ### impalingAffectsMobsInWater
 Backports applying the Impaling enchantment on any mob that is in water or rain, from Combat Test 7c
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `SURVIVAL`, `COMBAT`, `LUNAAR`
+* Categories: `SURVIVAL`, `BACKPORT`, `COMBAT`, `LUNAAR`
+
+### shulkerBoxItemsDropContents
+Backports dropping the contents of a Shulker Box item when its item entity is destroyed, from the 1.17 snapshots
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `SURVIVAL`, `BACKPORT`, `1.17`, `LUNAAR`

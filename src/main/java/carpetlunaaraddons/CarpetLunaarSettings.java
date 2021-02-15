@@ -51,7 +51,7 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Backports dropping the contents of a Shulker Box item when its item entity is destroyed",
-            extra = {"From 1.17 snapshots"},
+            extra = {"From the 1.17 snapshots"},
             category = {SURVIVAL, BACKPORT, v1_17, LUNAAR}
     )
     public static boolean shulkerBoxItemsDropContents = false;
