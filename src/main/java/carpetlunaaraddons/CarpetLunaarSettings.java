@@ -11,9 +11,9 @@ import static carpet.settings.RuleCategory.*;
  */
 public class CarpetLunaarSettings
 {
-    public static final String LUNAAR = "Lunaar";
-    public static final String BACKPORT = "Backport";
-    public static final String COMBAT = "Combat";
+    public static final String LUNAAR = "lunaar";
+    public static final String BACKPORT = "backport";
+    public static final String COMBAT = "combat";
     public static final String v1_17 = "1.17";
 
     @Rule(
