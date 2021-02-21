@@ -2,9 +2,8 @@ package carpetlunaaraddons;
 
 import carpet.settings.Rule;
 
-import java.util.function.Supplier;
-
-import static carpet.settings.RuleCategory.*;
+import static carpet.settings.RuleCategory.EXPERIMENTAL;
+import static carpet.settings.RuleCategory.SURVIVAL;
 
 /**
  * Here is your example Settings class you can plug to use carpetmod /carpet settings command

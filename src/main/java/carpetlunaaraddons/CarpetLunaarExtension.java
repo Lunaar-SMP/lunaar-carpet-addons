@@ -2,10 +2,7 @@ package carpetlunaaraddons;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.network.ServerPlayerEntity;
 
 public class CarpetLunaarExtension implements CarpetExtension
 {
