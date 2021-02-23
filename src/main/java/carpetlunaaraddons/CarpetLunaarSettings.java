@@ -2,8 +2,7 @@ package carpetlunaaraddons;
 
 import carpet.settings.Rule;
 
-import static carpet.settings.RuleCategory.EXPERIMENTAL;
-import static carpet.settings.RuleCategory.SURVIVAL;
+import static carpet.settings.RuleCategory.*;
 
 /**
  * Here is your example Settings class you can plug to use carpetmod /carpet settings command
@@ -54,4 +53,10 @@ public class CarpetLunaarSettings
             category = {SURVIVAL, BACKPORT, v1_17, LUNAAR}
     )
     public static boolean shulkerBoxItemsDropContents = false;
+
+    @Rule(
+            desc = "Allows players in Creative mode to kill entities in one hit",
+            category = {CREATIVE, LUNAAR}
+    )
+    public static boolean creativeOneHitKill = false;
 }
