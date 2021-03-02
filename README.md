@@ -6,14 +6,14 @@ Re-adds teleporting to portal POIs without portal blocks
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `EXPERIMENTAL`, `SURVIVAL`, `LUNAAR`
+* Categories: `SURVIVAL`, `EXPERIMENTAL`, `LUNAAR`
 
 ### forceLoadEnderPearls
 Prevents Ender Pearls from being deleted when moving into unloaded chunks
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `EXPERIMENTAL`, `SURVIVAL`, `LUNAAR`
+* Categories: `SURVIVAL`, `EXPERIMENTAL`, `LUNAAR`
 
 ### drownedUseEnchantedTridents
 Allows tridents thrown by drowned use the enchantments on the trident held by said drowned
@@ -42,3 +42,17 @@ Backports dropping the contents of a Shulker Box item when its item entity is de
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `SURVIVAL`, `BACKPORT`, `1.17`, `LUNAAR`
+
+###creativeOneHitKill
+Allows players in Creative mode to kill entities in one hit
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `CREATIVE`, `LUNAAR`
+
+###phantomsCapped
+Prevents phantoms from spawning if mobcap is full
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `SURVIVAL`, `EXPERIMENTAL`, `LUNAAR`
