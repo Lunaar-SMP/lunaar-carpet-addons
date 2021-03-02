@@ -43,14 +43,14 @@ Backports dropping the contents of a Shulker Box item when its item entity is de
 * Required options: `true`, `false`
 * Categories: `SURVIVAL`, `BACKPORT`, `1.17`, `LUNAAR`
 
-###creativeOneHitKill
+### creativeOneHitKill
 Allows players in Creative mode to kill entities in one hit
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `CREATIVE`, `LUNAAR`
 
-###phantomsCapped
+### phantomsCapped
 Prevents phantoms from spawning if mobcap is full
 * Type: `boolean`
 * Default value: `false`
