@@ -59,4 +59,10 @@ public class CarpetLunaarSettings
             category = {CREATIVE, LUNAAR}
     )
     public static boolean creativeOneHitKill = false;
+
+    @Rule(
+            desc = "Prevents phantoms from spawning if mobcap is full",
+            category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
+    )
+    public static boolean phantomsCapped = false;
 }
