@@ -35,14 +35,14 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Backports returning Loyalty tridents to their owner when thrown into the void",
-            extra = {"From Combat Test 7c"},
+            extra = {"From Combat Test 4"},
             category = {SURVIVAL, BACKPORT, COMBAT, LUNAAR}
     )
     public static boolean voidedLoyaltyTridentsReturn = false;
 
     @Rule(
             desc = "Backports applying the Impaling enchantment on any mob that is in water or rain",
-            extra = {"From Combat Test 7c"},
+            extra = {"From Combat Test 4"},
             category = {SURVIVAL, BACKPORT, COMBAT, LUNAAR}
     )
     public static boolean impalingAffectsMobsInWater = false;
