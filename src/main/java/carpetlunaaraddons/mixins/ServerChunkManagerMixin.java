@@ -2,38 +2,30 @@ package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
 import carpetlunaaraddons.helpers.ChunkManagerHelper;
-import net.minecraft.server.world.ChunkTicketManager;
+import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerChunkManager;
-import net.minecraft.world.chunk.WorldChunk;
-import org.spongepowered.asm.mixin.Final;
+import net.minecraft.world.SpawnHelper;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.function.Consumer;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ServerChunkManager.class)
 public abstract class ServerChunkManagerMixin
 {
-	@Shadow @Final private ChunkTicketManager ticketManager;
-
-	@Shadow protected abstract void ifChunkLoaded(long pos, Consumer<WorldChunk> chunkConsumer);
-
-	@Inject(
+	@Redirect(
 			method = "tickChunks",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/util/profiler/Profiler;push(Ljava/lang/String;)V",
-					ordinal = 1,
-					shift = At.Shift.AFTER
+					target = "Lnet/minecraft/world/SpawnHelper;setupSpawn(ILjava/lang/Iterable;Lnet/minecraft/world/SpawnHelper$ChunkSource;)Lnet/minecraft/world/SpawnHelper$Info;"
 			)
 	)
-	public void helperPutter(CallbackInfo ci) {
+	public SpawnHelper.Info infoSetter(int spawningChunkCount, Iterable<Entity> entities,
+	                                   SpawnHelper.ChunkSource chunkSource) {
+		SpawnHelper.Info info = SpawnHelper.setupSpawn(spawningChunkCount, entities, chunkSource);
 		if (CarpetLunaarSettings.phantomsCapped) {
-			ChunkManagerHelper.putTicketManager(this.ticketManager);
-			ChunkManagerHelper.putChunkSource(this::ifChunkLoaded);
+			ChunkManagerHelper.putInfo(info);
+			ChunkManagerHelper.putSpawningChunkCount(spawningChunkCount);
 		}
+		return info;
 	}
 }

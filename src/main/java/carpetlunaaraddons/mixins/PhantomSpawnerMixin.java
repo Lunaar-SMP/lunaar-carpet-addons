@@ -29,10 +29,9 @@ public class PhantomSpawnerMixin
 	public void mobcapConditional(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals,
 	                              CallbackInfoReturnable<Integer> cir) {
 		if (CarpetLunaarSettings.phantomsCapped) {
-			int chunkCount = ChunkManagerHelper.getTicketManager().getSpawningChunkCount();
-			SpawnHelper.Info info = SpawnHelper.setupSpawn(chunkCount,
-					world.iterateEntities(), ChunkManagerHelper.getChunkSource());
-			int i = SpawnGroup.MONSTER.getCapacity() * chunkCount / (int)Math.pow(17.0D, 2.0D);
+			SpawnHelper.Info info = ChunkManagerHelper.getInfo();
+			int i = SpawnGroup.MONSTER.getCapacity()
+					* ChunkManagerHelper.getSpawningChunkCount() / (int)Math.pow(17.0D, 2.0D);
 			if (info.getGroupToCount().getInt(SpawnGroup.MONSTER) > i)
 				cir.setReturnValue(0);
 		}
