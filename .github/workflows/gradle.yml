@@ -16,7 +16,13 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Set Time
+        run: echo "time=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          path: build/libs/*
+          name: carpet-lunaar-addons-${{ env.time }}.jar
+          path: |
+            build/libs/carpet-lunaar-addons*.jar
+            !build/libs/*sources.jar
+            !build/libs/*dev.jar
