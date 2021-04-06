@@ -28,14 +28,6 @@ public abstract class TridentEntityMixin
 		super(entityType, world);
 	}
 
-	protected TridentEntityMixin(EntityType<? extends PersistentProjectileEntity> type, double x, double y, double z, World world) {
-		super(type, x, y, z, world);
-	}
-
-	protected TridentEntityMixin(EntityType<? extends PersistentProjectileEntity> type, LivingEntity owner, World world) {
-		super(type, owner, world);
-	}
-
 	@Accessor("LOYALTY") abstract TrackedData<Byte> getLOYALTY();
 
 	@Redirect(

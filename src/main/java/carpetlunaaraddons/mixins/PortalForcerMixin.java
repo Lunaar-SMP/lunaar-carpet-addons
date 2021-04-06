@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-@Mixin(value = PortalForcer.class, targets = "net.minecraft.world.PortalForcer")
+@Mixin(PortalForcer.class)
 public class PortalForcerMixin
 {
     @Shadow @Final private ServerWorld world;
