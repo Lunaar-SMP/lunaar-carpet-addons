@@ -1,4 +1,10 @@
-# Carpet Lunaar Addons
+
+Carpet Lunaar Addons
+====================
+
+[![Build Status](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml/badge.svg?branch=master)](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml)
+
+To get a build of the latest commit, go to [the build workflow](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml) and click on the latest run to download the jar (under "Artifacts")
 
 ## Rules
 ### teleportToPoiWithoutPortals
@@ -56,3 +62,10 @@ Prevents phantoms from spawning if mobcap is full
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `SURVIVAL`, `EXPERIMENTAL`, `LUNAAR`
+
+### capIgnoresDeathAnimation
+Mobs in death animation do not count towards the mob cap
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `CREATIVE`, `EXPERIMENTAL`, `LUNAAR`

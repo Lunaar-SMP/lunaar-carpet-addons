@@ -69,7 +69,7 @@ public class CarpetLunaarSettings
     @Rule(
             desc = "Mobs in death animation do not count towards the mob cap",
             extra = {"Might be a bit janky"},
-            category = {CREATIVE, EXPERIMENTAL}
+            category = {CREATIVE, EXPERIMENTAL, LUNAAR}
     )
     public static boolean capIgnoresDeathAnimation = false;
 }
