@@ -65,4 +65,11 @@ public class CarpetLunaarSettings
             category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
     )
     public static boolean phantomsCapped = false;
+
+    @Rule(
+            desc = "Mobs in death animation do not count towards the mob cap",
+            extra = {"Might be a bit janky"},
+            category = {CREATIVE, EXPERIMENTAL}
+    )
+    public static boolean capIgnoresDeathAnimation = false;
 }
