@@ -11,6 +11,7 @@ import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.Final;
@@ -59,6 +60,7 @@ public abstract class PlayerEntityMixin
 	public void creativeKill(Entity target, CallbackInfo ci) {
 		if (this.abilities.creativeMode
 				&& !this.accessorGetWorld().isClient // this is to prevent a bug with ender dragons
+				&& EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(target)
 				&& CarpetLunaarSettings.creativeOneHitKill) {
 			if (target instanceof EnderDragonPart) {
 				Arrays.stream(((EnderDragonPart) target).owner.getBodyParts()).forEach(Entity::kill);
