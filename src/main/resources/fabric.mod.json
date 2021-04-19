@@ -27,12 +27,9 @@
 
   "accessWidener" : "carpet-lunaar-addons.accesswidener",
   "depends": {
-    "minecraft": "1.16.x",
+    "minecraft": "^1.16.2",
     "fabricloader": ">=0.4.0",
     "carpet": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
   },
   "custom": {
     "modmenu": {
