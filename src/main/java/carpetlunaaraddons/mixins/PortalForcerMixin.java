@@ -3,13 +3,13 @@ package carpetlunaaraddons.mixins;
 import carpetlunaaraddons.CarpetLunaarSettings;
 import carpetlunaaraddons.helpers.DummyGetHelper;
 import net.minecraft.block.BlockState;
-import net.minecraft.class_5459;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.PortalForcer;
+import net.minecraft.world.PortalUtil;
 import net.minecraft.world.poi.PointOfInterest;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -55,16 +55,16 @@ public class PortalForcerMixin
             method = "method_30479", //This is a lambda
             at = @At(
                     value = "INVOKE",
-                    target = "net/minecraft/class_5459.method_30574(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction$Axis;ILnet/minecraft/util/math/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/class_5459$class_5460;"
+                    target = "net/minecraft/world/PortalUtil.getLargestRectangle(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction$Axis;ILnet/minecraft/util/math/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/world/PortalUtil$Rectangle;"
             )
     )
-    private class_5459.class_5460 dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
-                                              Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
+    private PortalUtil.Rectangle dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
+                                   Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
         return (CarpetLunaarSettings.teleportToPoiWithoutPortals
                 && !this.world.getBlockState(blockPos).contains(Properties.HORIZONTAL_AXIS)) ?
                 //The i and j arguments are just random numbers I came up with at the spot,
                 //please feel free to make a pull request if you think there are better values for these - Copetan
-                new class_5459.class_5460(blockPos, 1, 1) :
-                class_5459.method_30574(blockPos, axis1, i, axis2, j, predicate);
+                new PortalUtil.Rectangle(blockPos, 1, 1) :
+                PortalUtil.getLargestRectangle(blockPos, axis1, i, axis2, j, predicate);
     }
 }
