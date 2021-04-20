@@ -7,7 +7,6 @@
     "CarpetServerMixin",
     "ClientWorldMixin",
     "DrownedEntityMixin",
-    "ItemEntityMixin",
     "MobEntityMixin",
     "PhantomSpawnerMixin",
     "PlayerEntityMixin",

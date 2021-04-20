@@ -12,7 +12,6 @@ public class CarpetLunaarSettings
     public static final String LUNAAR = "lunaar";
     public static final String BACKPORT = "backport";
     public static final String COMBAT = "combat";
-    public static final String v1_17 = "1.17";
 
     @Rule(
             desc = "Re-adds teleporting to portal POIs without portal blocks",
@@ -46,13 +45,6 @@ public class CarpetLunaarSettings
             category = {SURVIVAL, BACKPORT, COMBAT, LUNAAR}
     )
     public static boolean impalingAffectsMobsInWater = false;
-
-    @Rule(
-            desc = "Backports dropping the contents of a Shulker Box item when its item entity is destroyed",
-            extra = {"From the 1.17 snapshots"},
-            category = {SURVIVAL, BACKPORT, v1_17, LUNAAR}
-    )
-    public static boolean shulkerBoxItemsDropContents = false;
 
     @Rule(
             desc = "Allows players in Creative mode to kill entities in one hit",
