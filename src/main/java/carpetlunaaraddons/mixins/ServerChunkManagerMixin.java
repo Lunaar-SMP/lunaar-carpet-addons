@@ -35,7 +35,7 @@ public abstract class ServerChunkManagerMixin
 	@Inject(
 			method = "shouldTickEntity",
 			at = @At(value = "HEAD"),
-			cancellable =  true
+			cancellable = true
 	)
 	private void onShouldTickEntity(Entity entity, CallbackInfoReturnable<Boolean> cir){
 		if(CarpetLunaarSettings.forceLoadEnderPearls && entity instanceof EnderPearlEntity)
