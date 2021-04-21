@@ -4,7 +4,8 @@ Carpet Lunaar Addons
 
 [![Build Status](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml/badge.svg?branch=master)](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml)
 
-To get a build of the latest commit, go to [the build workflow](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml) and click on the latest run to download the jar (under "Artifacts")
+To get a build of the latest commit, go to [the build workflow](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml)
+and click on the latest run to download the jar (under "Artifacts")
 
 ## Rules
 ### teleportToPoiWithoutPortals
@@ -15,7 +16,8 @@ Re-adds teleporting to portal POIs without portal blocks
 * Categories: `SURVIVAL`, `EXPERIMENTAL`, `LUNAAR`
 
 ### forceLoadEnderPearls
-Prevents Ender Pearls from being deleted when moving into unloaded chunks
+Prevents ender pearls from getting deleted when they move into unloaded chunks, merged with `keepEnderPearlsTicked` from
+[carpet-addons](https://github.com/whoImT/carpet-addons) by [whoImT](https://github.com/whoImT)
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
