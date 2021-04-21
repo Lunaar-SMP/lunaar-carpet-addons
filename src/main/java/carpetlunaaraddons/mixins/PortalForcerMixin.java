@@ -25,7 +25,7 @@ public class PortalForcerMixin
     @Shadow @Final private ServerWorld world;
 
     @Redirect(
-            method = "method_30483",
+            method = "getPortalRect",
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"
