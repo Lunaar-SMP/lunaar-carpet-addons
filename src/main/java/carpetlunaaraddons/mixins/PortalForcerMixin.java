@@ -1,7 +1,6 @@
 package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
-import carpetlunaaraddons.helpers.DummyGetHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
@@ -50,7 +49,9 @@ public class PortalForcerMixin
             )
     )
     private Comparable<?> dummyGet(BlockState blockState, Property<Direction.Axis> property) {
-        return DummyGetHelper.dummyGetMethod(blockState, property);
+        if (CarpetLunaarSettings.teleportToPoiWithoutPortals && !blockState.contains(Properties.HORIZONTAL_AXIS))
+            return Direction.Axis.Z;
+        return blockState.get(property);
     }
 
     @SuppressWarnings("UnresolvedMixinReference")
