@@ -15,17 +15,16 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(MobEntity.class)
 public class MobEntityMixin
 {
-	@Redirect(
-			method = "tryAttack",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
-			)
-	)
-	public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, Entity target) {
-		if (CarpetLunaarSettings.impalingAffectsMobsInWater)
-			return GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity)target);
-		else
-			return EnchantmentHelper.getAttackDamage(stack, ((LivingEntity)target).getGroup());
-	}
+    @Redirect(
+            method = "tryAttack",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
+            )
+    )
+    public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, Entity target) {
+        return CarpetLunaarSettings.impalingAffectsMobsInWater ?
+                GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity) target) :
+                EnchantmentHelper.getAttackDamage(stack, ((LivingEntity) target).getGroup());
+    }
 }

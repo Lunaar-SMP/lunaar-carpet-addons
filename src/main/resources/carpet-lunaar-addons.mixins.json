@@ -5,7 +5,6 @@
   "mixins": [
     "AreaHelperMixin",
     "CarpetServerMixin",
-    "ClientWorldMixin",
     "DrownedEntityMixin",
     "ItemEntityMixin",
     "MobEntityMixin",

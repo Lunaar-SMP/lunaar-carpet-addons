@@ -21,35 +21,35 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(TridentEntity.class)
 public abstract class TridentEntityMixin
-	extends PersistentProjectileEntity
-	implements EntityAccessorMixin, PersistentProjectileEntityAccessorMixin
+        extends PersistentProjectileEntity
+        implements EntityAccessorMixin, PersistentProjectileEntityAccessorMixin
 {
-	protected TridentEntityMixin(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
-		super(entityType, world);
-	}
+    protected TridentEntityMixin(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
+        super(entityType, world);
+    }
 
-	@Accessor("LOYALTY") abstract TrackedData<Byte> getLOYALTY();
+    @Accessor("LOYALTY")
+    abstract TrackedData<Byte> getLOYALTY();
 
-	@Redirect(
-			method = "onEntityHit",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
-			)
-	)
-	public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, EntityHitResult hitResult) {
-		if (CarpetLunaarSettings.impalingAffectsMobsInWater)
-			return GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity)hitResult.getEntity());
-		else
-			return EnchantmentHelper.getAttackDamage(stack, ((LivingEntity)hitResult.getEntity()).getGroup());
-	}
+    @Redirect(
+            method = "onEntityHit",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
+            )
+    )
+    public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, EntityHitResult hitResult) {
+        return CarpetLunaarSettings.impalingAffectsMobsInWater ?
+                GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity) hitResult.getEntity()) :
+                EnchantmentHelper.getAttackDamage(stack, ((LivingEntity) hitResult.getEntity()).getGroup());
+    }
 
-	@Override
-	protected void destroy() {
-		int i = this.accessorGetDataTracker().get(this.getLOYALTY());
-		if ((i > 0) && CarpetLunaarSettings.voidedLoyaltyTridentsReturn)
-			this.invokerSetNoClip(true);
-		else
-			super.destroy();
-	}
+    @Override
+    protected void destroy() {
+        int i = this.accessorGetDataTracker().get(this.getLOYALTY());
+        if (CarpetLunaarSettings.voidedLoyaltyTridentsReturn && (i > 0))
+            this.invokerSetNoClip(true);
+        else
+            super.destroy();
+    }
 }

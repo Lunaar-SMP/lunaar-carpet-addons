@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(AreaHelper.class)
 public class AreaHelperMixin
 {
-	@Redirect(
-			method = "method_30484",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/block/BlockState;get(Lnet/minecraft/state/property/Property;)Ljava/lang/Comparable;"
-			)
-	)
-	private static Comparable<?> dummyGet(BlockState blockState, Property<Direction.Axis> property) {
-		return DummyGetHelper.dummyGetMethod(blockState,property);
-	}
+    @Redirect(
+            method = "method_30484",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/block/BlockState;get(Lnet/minecraft/state/property/Property;)Ljava/lang/Comparable;"
+            )
+    )
+    private static Comparable<?> dummyGet(BlockState blockState, Property<Direction.Axis> property) {
+        return DummyGetHelper.dummyGetMethod(blockState, property);
+    }
 }

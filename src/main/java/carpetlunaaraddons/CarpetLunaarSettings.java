@@ -4,9 +4,6 @@ import carpet.settings.Rule;
 
 import static carpet.settings.RuleCategory.*;
 
-/**
- * Here is your example Settings class you can plug to use carpetmod /carpet settings command
- */
 public class CarpetLunaarSettings
 {
     public static final String LUNAAR = "lunaar";

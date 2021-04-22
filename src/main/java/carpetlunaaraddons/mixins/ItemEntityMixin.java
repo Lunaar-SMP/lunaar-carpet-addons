@@ -19,32 +19,33 @@ import java.util.stream.Stream;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin
-	implements EntityAccessorMixin
+        implements EntityAccessorMixin
 {
-	@Shadow public abstract ItemStack getStack();
+    @Shadow
+    public abstract ItemStack getStack();
 
-	@Inject(
-			method = "damage",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/entity/ItemEntity;remove()V"
-			)
-	)
-	public void onKilled(CallbackInfoReturnable<Boolean> cir) {
-		if ((this.getStack().getItem() instanceof BlockItem)
-				&& ((BlockItem) this.getStack().getItem()).getBlock() instanceof ShulkerBoxBlock
-				&& CarpetLunaarSettings.shulkerBoxItemsDropContents) {
-			CompoundTag compoundTag = this.getStack().getTag();
-			if (compoundTag != null) {
-				ListTag listTag = compoundTag.getCompound("BlockEntityTag").getList("Items", 10);
-				Stream<ItemStack> stream = listTag.stream().map(CompoundTag.class::cast).map(ItemStack::fromTag);
-				World world = this.accessorGetWorld();
-				if (!world.isClient) {
-					stream.forEach((itemStack) -> {
-						world.spawnEntity(new ItemEntity(world, this.invokerGetX(), this.invokerGetY(), this.invokerGetZ(), itemStack));
-					});
-				}
-			}
-		}
-	}
+    @Inject(
+            method = "damage",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/ItemEntity;remove()V"
+            )
+    )
+    public void onKilled(CallbackInfoReturnable<Boolean> cir) {
+        if (CarpetLunaarSettings.shulkerBoxItemsDropContents
+                && (this.getStack().getItem() instanceof BlockItem)
+                && (((BlockItem) this.getStack().getItem()).getBlock() instanceof ShulkerBoxBlock)) {
+            CompoundTag compoundTag = this.getStack().getTag();
+            if (compoundTag != null) {
+                ListTag listTag = compoundTag.getCompound("BlockEntityTag").getList("Items", 10);
+                Stream<ItemStack> stream = listTag.stream().map(CompoundTag.class::cast).map(ItemStack::fromTag);
+                World world = this.accessorGetWorld();
+                if (!world.isClient)
+                    stream.forEach((itemStack) ->
+                            world.spawnEntity(new ItemEntity(world, this.invokerGetX(), this.invokerGetY(),
+                                    this.invokerGetZ(), itemStack))
+                    );
+            }
+        }
+    }
 }

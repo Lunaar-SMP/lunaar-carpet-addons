@@ -7,5 +7,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(PersistentProjectileEntity.class)
 public interface PersistentProjectileEntityAccessorMixin
 {
-	@Invoker("setNoClip") void invokerSetNoClip(boolean noClip);
+    @Invoker("setNoClip")
+    void invokerSetNoClip(boolean noClip);
 }

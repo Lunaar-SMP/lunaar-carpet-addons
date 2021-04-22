@@ -20,20 +20,20 @@ import java.util.stream.Collectors;
 @Mixin(DrownedEntity.class)
 public class DrownedEntityMixin
 {
-	@Redirect(
-			method = "attack",
-			at = @At(
-					value = "NEW",
-					target = "net/minecraft/entity/projectile/TridentEntity"
-			)
-	)
-	public TridentEntity dummyTridentEntity(World world, LivingEntity owner, ItemStack stack) {
-		if (CarpetLunaarSettings.drownedUseEnchantedTridents) {
-			Map<Enchantment,Integer> map = EnchantmentHelper.get(owner.getStackInHand(Hand.MAIN_HAND)).entrySet()
-					.stream().filter((entry) -> !(entry.getKey() instanceof LoyaltyEnchantment))
-					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-			EnchantmentHelper.set(map,stack);
-		}
-		return new TridentEntity(world, owner, stack);
-	}
+    @Redirect(
+            method = "attack",
+            at = @At(
+                    value = "NEW",
+                    target = "net/minecraft/entity/projectile/TridentEntity"
+            )
+    )
+    public TridentEntity dummyTridentEntity(World world, LivingEntity owner, ItemStack stack) {
+        if (CarpetLunaarSettings.drownedUseEnchantedTridents) {
+            Map<Enchantment, Integer> map = EnchantmentHelper.get(owner.getStackInHand(Hand.MAIN_HAND)).entrySet()
+                    .stream().filter((entry) -> !(entry.getKey() instanceof LoyaltyEnchantment))
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            EnchantmentHelper.set(map, stack);
+        }
+        return new TridentEntity(world, owner, stack);
+    }
 }
