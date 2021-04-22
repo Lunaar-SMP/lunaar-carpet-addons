@@ -4,9 +4,6 @@ import carpet.settings.Rule;
 
 import static carpet.settings.RuleCategory.*;
 
-/**
- * Here is your example Settings class you can plug to use carpetmod /carpet settings command
- */
 public class CarpetLunaarSettings
 {
     public static final String LUNAAR = "lunaar";
@@ -21,7 +18,9 @@ public class CarpetLunaarSettings
     public static boolean teleportToPoiWithoutPortals = false;
 
     @Rule(
-            desc = "Prevents Ender Pearls from being deleted when traveling to unloaded chunks",
+            desc = "Prevents ender pearls from getting deleted when they move into unloaded chunks",
+            extra = {"This also means that ender pearls load chunks",
+                    "Merged with keepEnderPearlsTicked from carpet-addons by whoImT"},
             category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
     )
     public static boolean forceLoadEnderPearls = false;

@@ -16,13 +16,16 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Mixin(PortalForcer.class)
 public class PortalForcerMixin
 {
-    @Shadow @Final private ServerWorld world;
+    @Shadow
+    @Final
+    private ServerWorld world;
 
     @Redirect(
             method = "getPortalRect",
@@ -47,24 +50,24 @@ public class PortalForcerMixin
             )
     )
     private Comparable<?> dummyGet(BlockState blockState, Property<Direction.Axis> property) {
-        return DummyGetHelper.dummyGetMethod(blockState,property);
+        return DummyGetHelper.dummyGetMethod(blockState, property);
     }
 
     @SuppressWarnings("UnresolvedMixinReference")
     @Redirect(
-            method = "method_30479", //This is a lambda
+            method = "method_30479", // This is a lambda
             at = @At(
                     value = "INVOKE",
                     target = "net/minecraft/world/PortalUtil.getLargestRectangle(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction$Axis;ILnet/minecraft/util/math/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/world/PortalUtil$Rectangle;"
             )
     )
     private PortalUtil.Rectangle dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
-                                   Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
-        return (CarpetLunaarSettings.teleportToPoiWithoutPortals
-                && !this.world.getBlockState(blockPos).contains(Properties.HORIZONTAL_AXIS)) ?
-                //The i and j arguments are just random numbers I came up with at the spot,
-                //please feel free to make a pull request if you think there are better values for these - Copetan
-                new PortalUtil.Rectangle(blockPos, 1, 1) :
-                PortalUtil.getLargestRectangle(blockPos, axis1, i, axis2, j, predicate);
+                                             Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
+        if (CarpetLunaarSettings.teleportToPoiWithoutPortals
+                && !this.world.getBlockState(blockPos).contains(Properties.HORIZONTAL_AXIS))
+            // The width and height arguments are just random numbers I came up with at the spot,
+            // please feel free to make a pull request if you think there are better values for these - Copetan
+            return new PortalUtil.Rectangle(blockPos, 1, 1);
+        return PortalUtil.getLargestRectangle(blockPos, axis1, i, axis2, j, predicate);
     }
 }

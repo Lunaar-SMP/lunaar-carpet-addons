@@ -12,20 +12,20 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(ServerChunkManager.class)
 public abstract class ServerChunkManagerMixin
 {
-	@Redirect(
-			method = "tickChunks",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/SpawnHelper;setupSpawn(ILjava/lang/Iterable;Lnet/minecraft/world/SpawnHelper$ChunkSource;)Lnet/minecraft/world/SpawnHelper$Info;"
-			)
-	)
-	public SpawnHelper.Info infoSetter(int spawningChunkCount, Iterable<Entity> entities,
-	                                   SpawnHelper.ChunkSource chunkSource) {
-		SpawnHelper.Info info = SpawnHelper.setupSpawn(spawningChunkCount, entities, chunkSource);
-		if (CarpetLunaarSettings.phantomsCapped) {
-			ChunkManagerHelper.putInfo(info);
-			ChunkManagerHelper.putSpawningChunkCount(spawningChunkCount);
-		}
-		return info;
-	}
+    @Redirect(
+            method = "tickChunks",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/SpawnHelper;setupSpawn(ILjava/lang/Iterable;Lnet/minecraft/world/SpawnHelper$ChunkSource;)Lnet/minecraft/world/SpawnHelper$Info;"
+            )
+    )
+    public SpawnHelper.Info infoSetter(int spawningChunkCount, Iterable<Entity> entities,
+                                       SpawnHelper.ChunkSource chunkSource) {
+        SpawnHelper.Info info = SpawnHelper.setupSpawn(spawningChunkCount, entities, chunkSource);
+        if (CarpetLunaarSettings.phantomsCapped) {
+            ChunkManagerHelper.putInfo(info);
+            ChunkManagerHelper.putSpawningChunkCount(spawningChunkCount);
+        }
+        return info;
+    }
 }
