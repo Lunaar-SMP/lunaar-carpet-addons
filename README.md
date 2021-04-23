@@ -5,7 +5,7 @@ Carpet Lunaar Addons
 [![Build Status](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml/badge.svg?branch=master)](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml)
 
 To get a build of the latest commit, go to [the build workflow](https://github.com/Lunaar-SMP/lunaar-carpet-addons/actions/workflows/gradle.yml)
-and click on the latest run to download the jar (under "Artifacts")
+and click on the latest run (make sure to check what branch it ran on) to download the jar (under "Artifacts")
 
 ## Rules
 ### teleportToPoiWithoutPortals
