@@ -44,13 +44,6 @@ Backports applying the Impaling enchantment on any mob that is in water or rain,
 * Required options: `true`, `false`
 * Categories: `SURVIVAL`, `BACKPORT`, `COMBAT`, `LUNAAR`
 
-### shulkerBoxItemsDropContents
-Backports dropping the contents of a Shulker Box item when its item entity is destroyed, from the 1.17 snapshots
-* Type: `boolean`
-* Default value: `false`
-* Required options: `true`, `false`
-* Categories: `SURVIVAL`, `BACKPORT`, `1.17`, `LUNAAR`
-
 ### creativeOneHitKill
 Allows players in Creative mode to kill entities in one hit
 * Type: `boolean`
