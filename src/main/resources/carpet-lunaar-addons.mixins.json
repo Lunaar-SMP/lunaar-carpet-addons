@@ -5,12 +5,12 @@
   "mixins": [
     "CarpetServerMixin",
     "DrownedEntityMixin",
+    "EnderPearlEntityMixin",
     "MobEntityMixin",
     "PhantomSpawnerMixin",
     "PlayerEntityMixin",
     "PortalForcerMixin",
     "ServerChunkManagerMixin",
-    "ServerWorldMixin",
     "SpawnHelperMixin",
     "TridentEntityMixin",
     "accessors.EntityAccessorMixin",
