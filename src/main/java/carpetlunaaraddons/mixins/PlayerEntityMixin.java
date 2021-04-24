@@ -30,7 +30,7 @@ public abstract class PlayerEntityMixin
 {
     @Shadow
     @Final
-    public PlayerAbilities abilities;
+    private PlayerAbilities abilities;
 
     @Shadow
     public abstract SoundCategory getSoundCategory();
