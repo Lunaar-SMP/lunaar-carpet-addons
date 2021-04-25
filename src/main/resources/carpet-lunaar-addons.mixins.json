@@ -12,6 +12,7 @@
     "PlayerEntityMixin",
     "PortalForcerMixin",
     "ServerChunkManagerMixin",
+    "ServerScoreboardMixin",
     "ServerWorldMixin",
     "SpawnHelperMixin",
     "TridentEntityMixin",

@@ -11,6 +11,7 @@ public class CarpetLunaarSettings
     public static final String COMBAT = "combat";
     public static final String v1_17 = "1.17";
 
+
     @Rule(
             desc = "Re-adds teleporting to portal POIs without portal blocks",
             extra = {"Update suppressor go brrr"},
@@ -71,4 +72,17 @@ public class CarpetLunaarSettings
             category = {CREATIVE, EXPERIMENTAL, LUNAAR}
     )
     public static boolean capIgnoresDeathAnimation = false;
+
+    @Rule(
+            desc = "Bots don't appear on scoreboards and do not count in the total.",
+            extra = {"Normal players need to be in a team!"},
+            category = { LUNAAR, SURVIVAL, FEATURE}
+    )
+    public static boolean filterBotsInScores = false;
+
+    @Rule(
+            desc = "The scoreboard total appears on the scoreboard.",
+            category = { LUNAAR, SURVIVAL, FEATURE}
+    )
+    public static boolean totalScore = false;
 }
