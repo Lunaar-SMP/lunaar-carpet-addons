@@ -24,4 +24,7 @@ public interface EntityAccessorMixin
 
     @Invoker("getZ")
     double invokerGetZ();
+
+    @Invoker("isSneaking")
+    boolean invokerIsSneaking();
 }

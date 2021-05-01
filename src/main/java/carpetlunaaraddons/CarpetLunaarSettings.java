@@ -10,10 +10,11 @@ public class CarpetLunaarSettings
     public static final String BACKPORT = "backport";
     public static final String COMBAT = "combat";
 
+
     @Rule(
             desc = "Re-adds teleporting to portal POIs without portal blocks",
             extra = {"Update suppressor go brrr"},
-            category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
+            category = {EXPERIMENTAL, LUNAAR}
     )
     public static boolean teleportToPoiWithoutPortals = false;
 
@@ -21,13 +22,13 @@ public class CarpetLunaarSettings
             desc = "Prevents ender pearls from getting deleted when they move into unloaded chunks",
             extra = {"This also means that ender pearls load chunks",
                     "Merged with keepEnderPearlsTicked from carpet-addons by whoImT"},
-            category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
+            category = {EXPERIMENTAL, LUNAAR}
     )
     public static boolean forceLoadEnderPearls = false;
 
     @Rule(
             desc = "Allows tridents thrown by drowned use the enchantments on the trident held by said drowned",
-            category = {SURVIVAL, LUNAAR}
+            category = {FEATURE, LUNAAR}
     )
     public static boolean drownedUseEnchantedTridents = false;
 
@@ -47,20 +48,34 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Allows players in Creative mode to kill entities in one hit",
+            extra = {"If the player is sneaking, other entities around the target get killed too"},
             category = {CREATIVE, LUNAAR}
     )
     public static boolean creativeOneHitKill = false;
 
     @Rule(
             desc = "Prevents phantoms from spawning if mobcap is full",
-            category = {SURVIVAL, EXPERIMENTAL, LUNAAR}
+            category = {FEATURE, EXPERIMENTAL, LUNAAR}
     )
     public static boolean phantomsCapped = false;
 
     @Rule(
             desc = "Mobs in death animation do not count towards the mob cap",
             extra = {"Might be a bit janky"},
-            category = {CREATIVE, EXPERIMENTAL, LUNAAR}
+            category = {CREATIVE, FEATURE, EXPERIMENTAL, LUNAAR}
     )
     public static boolean capIgnoresDeathAnimation = false;
+
+    @Rule(
+            desc = "Bots don't appear on scoreboards and do not count in the total if they're not in a team",
+            extra = {"Normal players need to be in a team!"},
+            category = {FEATURE, LUNAAR}
+    )
+    public static boolean filterBotsInScores = false;
+
+    @Rule(
+            desc = "The scoreboard total appears on the scoreboard",
+            category = {FEATURE, LUNAAR}
+    )
+    public static boolean totalScore = false;
 }
