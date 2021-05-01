@@ -56,6 +56,7 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Allows players in Creative mode to kill entities in one hit",
+            extra = {"If the player is sneaking, other entities around the target get killed too"},
             category = {CREATIVE, LUNAAR}
     )
     public static boolean creativeOneHitKill = false;
@@ -74,15 +75,15 @@ public class CarpetLunaarSettings
     public static boolean capIgnoresDeathAnimation = false;
 
     @Rule(
-            desc = "Bots don't appear on scoreboards and do not count in the total.",
+            desc = "Bots don't appear on scoreboards and do not count in the total if they're not in a team",
             extra = {"Normal players need to be in a team!"},
-            category = { LUNAAR, SURVIVAL, FEATURE}
+            category = {LUNAAR, SURVIVAL, FEATURE}
     )
     public static boolean filterBotsInScores = false;
 
     @Rule(
-            desc = "The scoreboard total appears on the scoreboard.",
-            category = { LUNAAR, SURVIVAL, FEATURE}
+            desc = "The scoreboard total appears on the scoreboard",
+            category = {LUNAAR, SURVIVAL, FEATURE}
     )
     public static boolean totalScore = false;
 }
