@@ -3,6 +3,7 @@
   "package": "carpetlunaaraddons.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BootstrapMixin",
     "CarpetServerMixin",
     "DrownedEntityMixin",
     "EnderPearlEntityMixin",

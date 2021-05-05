@@ -1,8 +1,8 @@
 package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
-import carpetlunaaraddons.helpers.GetAttackDamageHelper;
 import carpetlunaaraddons.mixins.accessors.EntityAccessorMixin;
+import carpetlunaaraddons.utils.GetAttackDamageUtil;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
@@ -45,7 +45,7 @@ public abstract class PlayerEntityMixin
     )
     public float alternateGetAttackDamage(ItemStack stack, EntityGroup group, Entity target) {
         return CarpetLunaarSettings.impalingAffectsMobsInWater ?
-                GetAttackDamageHelper.getAttackDamage(stack, (LivingEntity) target) :
+                GetAttackDamageUtil.getAttackDamage(stack, (LivingEntity) target) :
                 EnchantmentHelper.getAttackDamage(stack, ((LivingEntity) target).getGroup());
     }
 

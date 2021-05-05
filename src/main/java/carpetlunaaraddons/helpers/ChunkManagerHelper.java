@@ -7,19 +7,16 @@ public class ChunkManagerHelper
     private static SpawnHelper.Info info;
     private static int spawningChunkCount;
 
+    public static void putInfoAndSpawningChunkCount(SpawnHelper.Info info, int spawningChunkCount) {
+        ChunkManagerHelper.info = info;
+        ChunkManagerHelper.spawningChunkCount = spawningChunkCount;
+    }
+
     public static SpawnHelper.Info getInfo() {
         return info;
     }
 
-    public static void putInfo(SpawnHelper.Info info) {
-        ChunkManagerHelper.info = info;
-    }
-
     public static int getSpawningChunkCount() {
         return spawningChunkCount;
-    }
-
-    public static void putSpawningChunkCount(int spawningChunkCount) {
-        ChunkManagerHelper.spawningChunkCount = spawningChunkCount;
     }
 }

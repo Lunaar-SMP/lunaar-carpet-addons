@@ -78,4 +78,11 @@ public class CarpetLunaarSettings
             category = {FEATURE, LUNAAR}
     )
     public static boolean totalScore = false;
+
+    @Rule(
+            desc = "Dispensers can shoot tridents",
+            extra = {"Backported from Combat Test 4", "I know bedrock has this too, but we don't talk about bedrock"},
+            category = {FEATURE, BACKPORT, DISPENSER, COMBAT, LUNAAR}
+    )
+    public static boolean dispensersShootTridents = false;
 }
