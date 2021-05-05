@@ -1,4 +1,4 @@
-package carpetlunaaraddons.helpers;
+package carpetlunaaraddons.utils;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.ImpalingEnchantment;
@@ -7,7 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.mutable.MutableFloat;
 
-public class GetAttackDamageHelper
+public class GetAttackDamageUtil
 {
     public static float getAttackDamage(ItemStack stack, LivingEntity target) {
         MutableFloat mutableFloat = new MutableFloat();

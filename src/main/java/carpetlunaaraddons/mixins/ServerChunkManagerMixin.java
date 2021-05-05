@@ -23,8 +23,7 @@ public abstract class ServerChunkManagerMixin
                                        SpawnHelper.ChunkSource chunkSource) {
         SpawnHelper.Info info = SpawnHelper.setupSpawn(spawningChunkCount, entities, chunkSource);
         if (CarpetLunaarSettings.phantomsCapped) {
-            ChunkManagerHelper.putInfo(info);
-            ChunkManagerHelper.putSpawningChunkCount(spawningChunkCount);
+            ChunkManagerHelper.putInfoAndSpawningChunkCount(info, spawningChunkCount);
         }
         return info;
     }

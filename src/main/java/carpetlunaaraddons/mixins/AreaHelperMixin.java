@@ -1,6 +1,6 @@
 package carpetlunaaraddons.mixins;
 
-import carpetlunaaraddons.helpers.DummyGetHelper;
+import carpetlunaaraddons.utils.DummyGetUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.Direction;
@@ -20,6 +20,6 @@ public class AreaHelperMixin
             )
     )
     private static Comparable<?> dummyGet(BlockState blockState, Property<Direction.Axis> property) {
-        return DummyGetHelper.dummyGetMethod(blockState, property);
+        return DummyGetUtil.dummyGetMethod(blockState, property);
     }
 }
