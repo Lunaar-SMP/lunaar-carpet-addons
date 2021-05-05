@@ -92,3 +92,11 @@ The scoreboard total appears on the scoreboard
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `FEATURE`, `LUNAAR`
+
+### dispensersShootTridents
+Dispensers can shoot tridents
+<br/>Backported from Combat Test 4
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `BACKPORT`, `DISPENSER`, `COMBAT`, `LUNAAR`
