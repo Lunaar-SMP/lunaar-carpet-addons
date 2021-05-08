@@ -96,7 +96,7 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Reimplements mob overspawning",
-            extra = {"From 1.15"},
+            extra = {"From 1.15.2"},
             category = {CREATIVE, LUNAAR}
     )
     public static boolean doOverspawning = false;
