@@ -115,5 +115,5 @@ Reimplements mob overspawning
 
 ## License
 This entire project is licensed under [LGPL-3.0](LICENSE), with portions of the code (specifically code for the
-`filterBotsInScores` and the `totalScore` carpet rules) based off of code made by @JohanVonElectrum, which is licensed
-under the [MIT license](LICENSE_MIT).
+`filterBotsInScores` and the `totalScore` carpet rules) based off of code made by [@JohanVonElectrum](https://github.com/JohanVonElectrum),
+which is licensed under the [MIT license](LICENSE_MIT).
