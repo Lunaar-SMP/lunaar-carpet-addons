@@ -85,4 +85,11 @@ public class CarpetLunaarSettings
             category = {BACKPORT, DISPENSER, COMBAT, LUNAAR}
     )
     public static boolean dispensersShootTridents = false;
+
+    @Rule(
+            desc = "Reimplements mob overspawning",
+            extra = {"From 1.15.2"},
+            category = {CREATIVE, LUNAAR}
+    )
+    public static boolean doOverspawning = false;
 }

@@ -4,12 +4,15 @@ import carpetlunaaraddons.CarpetLunaarSettings;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.math.GravityField;
 import net.minecraft.world.SpawnHelper;
+import net.minecraft.world.chunk.Chunk;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -49,5 +52,17 @@ public class SpawnHelperMixin
         if (CarpetLunaarSettings.capIgnoresDeathAnimation && !entity.isAlive())
             return SpawnGroup.MISC;
         return spawnGroup;
+    }
+
+    @Redirect(
+            method = "spawnEntitiesInChunk(Lnet/minecraft/entity/SpawnGroup;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/world/chunk/Chunk;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/SpawnHelper$Checker;Lnet/minecraft/world/SpawnHelper$Runner;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/SpawnHelper$Runner;run(Lnet/minecraft/entity/mob/MobEntity;Lnet/minecraft/world/chunk/Chunk;)V"
+            )
+    )
+    private static void checkOverspawning(SpawnHelper.Runner runner, MobEntity entity, Chunk chunk) {
+        if (!CarpetLunaarSettings.doOverspawning)
+            runner.run(entity, chunk);
     }
 }
