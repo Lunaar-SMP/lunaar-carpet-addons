@@ -66,9 +66,9 @@ public abstract class PlayerEntityMixin
                 && this.abilities.creativeMode
                 && EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(target)) {
             Consumer<Entity> instaKill = (target2) -> {
-                if (target2 instanceof EnderDragonPart) {
-                    Arrays.stream(((EnderDragonPart) target2).owner.getBodyParts()).forEach(Entity::kill);
-                    ((EnderDragonPart) target2).owner.kill();
+                if (target2 instanceof EnderDragonPart part) {
+                    Arrays.stream(part.owner.getBodyParts()).forEach(Entity::kill);
+                    part.owner.kill();
                 } else {
                     target2.kill();
                 }
