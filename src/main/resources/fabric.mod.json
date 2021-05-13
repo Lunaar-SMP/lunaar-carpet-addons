@@ -28,8 +28,9 @@
   "accessWidener" : "carpet-lunaar-addons.accesswidener",
   "depends": {
     "minecraft": "1.17.x",
-    "fabricloader": ">=0.4.0",
-    "carpet": "*"
+    "fabricloader": ">=0.11.3",
+    "carpet": "*",
+    "java": ">=16"
   },
   "custom": {
     "modmenu": {
