@@ -23,6 +23,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin
@@ -64,27 +65,27 @@ public abstract class PlayerEntityMixin
                 && !this.accessorGetWorld().isClient // this is to prevent a bug with ender dragons
                 && this.abilities.creativeMode
                 && EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(target)) {
-            instaKill(target);
+            Consumer<Entity> instaKill = (target2) -> {
+                if (target2 instanceof EnderDragonPart) {
+                    Arrays.stream(((EnderDragonPart) target2).owner.getBodyParts()).forEach(Entity::kill);
+                    ((EnderDragonPart) target2).owner.kill();
+                } else {
+                    target2.kill();
+                }
+            };
+
+            instaKill.accept(target);
             this.accessorGetWorld().playSound(null, this.invokerGetX(), this.invokerGetY(), this.invokerGetZ(),
                     SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, this.getSoundCategory(), 1.0F, 1.0F);
             if (this.invokerIsSneaking()) {
                 this.accessorGetWorld().getNonSpectatingEntities(Entity.class,
                         target.getBoundingBox().expand(2.0D, 0.50D, 2.0D)).stream()
                         .filter(entity -> entity.isAttackable() && EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(entity))
-                        .forEach(this::instaKill);
+                        .forEach(instaKill);
                 this.accessorGetWorld().playSound(null, this.invokerGetX(), this.invokerGetY(), this.invokerGetZ(),
                         SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, this.getSoundCategory(), 1.0F, 1.0F);
             }
             ci.cancel();
-        }
-    }
-
-    private void instaKill(Entity target) {
-        if (target instanceof EnderDragonPart) {
-            Arrays.stream(((EnderDragonPart) target).owner.getBodyParts()).forEach(Entity::kill);
-            ((EnderDragonPart) target).owner.kill();
-        } else {
-            target.kill();
         }
     }
 }
