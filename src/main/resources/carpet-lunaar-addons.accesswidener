@@ -1,3 +1,4 @@
 accessWidener	v1	named
 accessible	class	net/minecraft/enchantment/EnchantmentHelper$Consumer
 accessible	method	net/minecraft/enchantment/EnchantmentHelper	forEachEnchantment	(Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;Lnet/minecraft/item/ItemStack;)V
+accessible field net/minecraft/entity/player/PlayerEntity PLAYER_MODEL_PARTS Lnet/minecraft/entity/data/TrackedData;

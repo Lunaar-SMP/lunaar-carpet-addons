@@ -19,7 +19,8 @@
     "SpawnHelperMixin",
     "TridentEntityMixin",
     "accessors.EntityAccessorMixin",
-    "accessors.PersistentProjectileEntityAccessorMixin"
+    "accessors.PersistentProjectileEntityAccessorMixin",
+    "carpet.EntityPlayerActionPackMixin"
   ],
   "client": [
   ],
