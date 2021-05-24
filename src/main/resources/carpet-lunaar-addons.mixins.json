@@ -16,6 +16,7 @@
     "ServerChunkManagerMixin",
     "ServerScoreboardMixin",
     "ServerWorldMixin",
+    "SpawnHelperInfoMixin",
     "SpawnHelperMixin",
     "TridentEntityMixin",
     "accessors.EntityAccessorMixin",
