@@ -23,9 +23,8 @@ public abstract class ServerChunkManagerMixin
     public SpawnHelper.Info infoSetter(int spawningChunkCount, Iterable<Entity> entities,
                                        SpawnHelper.ChunkSource chunkSource) {
         SpawnHelper.Info info = SpawnHelper.setupSpawn(spawningChunkCount, entities, chunkSource);
-        if (CarpetLunaarSettings.phantomsCapped) {
+        if (CarpetLunaarSettings.phantomsCapped)
             ChunkManagerHelper.putInfoAndSpawningChunkCount(((SpawnHelperInfoDuckInterface) info).copy(), spawningChunkCount);
-        }
         return info;
     }
 }
