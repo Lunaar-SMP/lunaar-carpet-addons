@@ -2,6 +2,7 @@ package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
 import carpetlunaaraddons.helpers.ChunkManagerHelper;
+import carpetlunaaraddons.helpers.SpawnHelperInfoDuckInterface;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerChunkManager;
 import net.minecraft.world.SpawnHelper;
@@ -22,9 +23,8 @@ public abstract class ServerChunkManagerMixin
     public SpawnHelper.Info infoSetter(int spawningChunkCount, Iterable<Entity> entities,
                                        SpawnHelper.ChunkSource chunkSource) {
         SpawnHelper.Info info = SpawnHelper.setupSpawn(spawningChunkCount, entities, chunkSource);
-        if (CarpetLunaarSettings.phantomsCapped) {
-            ChunkManagerHelper.putInfoAndSpawningChunkCount(info, spawningChunkCount);
-        }
+        if (CarpetLunaarSettings.phantomsCapped)
+            ChunkManagerHelper.putInfoAndSpawningChunkCount(((SpawnHelperInfoDuckInterface) info).copy(), spawningChunkCount);
         return info;
     }
 }
