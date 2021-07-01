@@ -100,4 +100,17 @@ public class CarpetLunaarSettings
             category = {CREATIVE, LUNAAR}
     )
     public static boolean doOverspawning = false;
+
+    @Rule(
+            desc = "Allows the use of spigot formatting inside of anvils",
+            extra = "Thanks FX, to see formatting codes use /colors",
+            category = {FEATURE, EXPERIMENTAL, LUNAAR}
+    )
+    public static boolean anvilColorFormatting = false;
+    @Rule(
+            desc = "Fixes Chunk Regen due to StringTag writeUTF() not respecting readUTF() Limits",
+            extra = "Thanks FX, fixes ChunkRegen & [MC-134892](https://bugs.mojang.com/browse/MC-134892)",
+            category = {BUGFIX, CRASHFIX, LUNAAR}
+    )
+    public static boolean chunkRegenFix = false;
 }
