@@ -11,9 +11,9 @@ import static net.minecraft.server.command.CommandManager.argument;
 
 public class CarpetLunaarCommands {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) { // This is totally not sketch or anything. Totally isnt copy pasted from WeirdAddons
-        dispatcher.register(literal("color").requires((player) -> SettingsManager.canUseCommand(player, WeirdAddonsSettings.commandWeird)).
+        dispatcher.register(literal("color").requires((player) -> SettingsManager.canUseCommand(player, CarpetLunaarSettings.commandWeird)).
             executes((c) -> {
-                WeirdAddonsUtil.sendToPlayer(c.getSource().getPlayer().getUuid(),
+                CommandHandler.sendToPlayer(c.getSource().getPlayer().getUuid(),
                 "§l----------: §6§lColors: §r§l :----------" + "\n"
                         + "§aGreen: &a" + "\n"
                         + "§bAqua: &b" + "\n"
@@ -36,4 +36,7 @@ public class CarpetLunaarCommands {
                         + "§lBold: &l" + "\n"
                         + "§mStrike Through: &m§r" + "\n"
                         + "§nUnderline: &n§r" + "\n"
-                        + "§oItalics &o§r" + "\n");}
+                        + "§oItalics &o§r" + "\n");
+              }
+            ));}
+}
