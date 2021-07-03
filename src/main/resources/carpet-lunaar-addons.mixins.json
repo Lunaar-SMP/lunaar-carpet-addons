@@ -7,7 +7,7 @@
     "AnvilScreenHandlerMixin",
     "BootstrapMixin",
     "CarpetServerMixin",
-    "ChunkRegenFix",
+    "StringTagMixin",
     "DrownedEntityMixin",
     "ItemEntityMixin",
     "MobEntityMixin",
