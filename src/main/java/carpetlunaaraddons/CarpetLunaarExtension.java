@@ -2,36 +2,24 @@ package carpetlunaaraddons;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import net.minecraft.server.MinecraftServer;
+import com.mojang.brigadier.CommandDispatcher;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.server.command.ServerCommandSource;
 
-public class CarpetLunaarExtension implements CarpetExtension
+public class CarpetLunaarExtension implements CarpetExtension, ModInitializer
 {
-    public static void noop() { }
-    static {
+    @Override
+    public void onInitialize() {
         CarpetServer.manageExtension(new CarpetLunaarExtension());
     }
 
     @Override
     public void onGameStarted() {
-        // let's /carpet handle our few simple settings
         CarpetServer.settingsManager.parseSettingsClass(CarpetLunaarSettings.class);
-
-        // set-up a snooper to observe how rules are changing in carpet
-        CarpetServer.settingsManager.addRuleObserver( (serverCommandSource, currentRuleState, originalUserTest) ->
-        {
-
-        });
     }
 
     @Override
-    public void onServerLoaded(MinecraftServer server) {
-        // reloading of /carpet settings is handled by carpet
-        // reloading of own settings is handled as an extension, since we claim own settings manager
-    }
-
-
-    @Override
-    public void registerLoggers() {
-
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+        CarpetLunaarCommands.register(dispatcher);
     }
 }

@@ -19,6 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
+      "carpetlunaaraddons.CarpetLunaarExtension"
     ]
   },
   "mixins": [
