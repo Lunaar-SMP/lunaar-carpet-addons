@@ -2,7 +2,9 @@ package carpetlunaaraddons;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.command.ServerCommandSource;
 
 public class CarpetLunaarExtension implements CarpetExtension
 {
@@ -21,6 +23,11 @@ public class CarpetLunaarExtension implements CarpetExtension
         {
 
         });
+    }
+
+    @Override
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+        CarpetLunaarCommands.register(dispatcher);
     }
 
     @Override

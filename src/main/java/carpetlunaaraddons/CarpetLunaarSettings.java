@@ -1,6 +1,7 @@
 package carpetlunaaraddons;
 
 import carpet.settings.Rule;
+import carpet.settings.Validator;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -100,4 +101,27 @@ public class CarpetLunaarSettings
             category = {CREATIVE, LUNAAR}
     )
     public static boolean doOverspawning = false;
+
+    @Rule(
+            desc = "Allows the use of spigot formatting inside of anvils",
+            extra = {"Enable and use the /colors command to see formatting codes you can use", "From FX's WeirdAddons"},
+            category = {FEATURE, EXPERIMENTAL, LUNAAR}
+    )
+    public static boolean anvilColorFormatting = false;
+
+    @Rule(
+            desc = "Enables the /colors command",
+            extra = {"Use this command to see formatting codes you can use", "From FX's WeirdAddons"},
+            validate = Validator._COMMAND_LEVEL_VALIDATOR.class,
+            options = {"ops", "true", "false"},
+            category = {COMMAND, LUNAAR}
+    )
+    public static String commandColors = "ops";
+
+    @Rule(
+            desc = "Fixes Chunk Regen due to StringTag writeUTF() not respecting readUTF() Limits",
+            extra = "Thanks FX, fixes ChunkRegen & [MC-134892](https://bugs.mojang.com/browse/MC-134892)",
+            category = {BUGFIX, LUNAAR}
+    )
+    public static boolean chunkRegenFix = false;
 }
