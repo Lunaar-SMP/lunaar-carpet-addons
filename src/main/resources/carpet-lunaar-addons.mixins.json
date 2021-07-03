@@ -6,7 +6,6 @@
     "AreaHelperMixin",
     "AnvilScreenHandlerMixin",
     "BootstrapMixin",
-    "CarpetServerMixin",
     "StringTagMixin",
     "DrownedEntityMixin",
     "ItemEntityMixin",
