@@ -1,7 +1,7 @@
 package carpetlunaaraddons.mixins;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
-import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.NbtString;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.Final;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.io.DataOutput;
 
-@Mixin(StringTag.class)
+@Mixin(NbtString.class)
 public abstract class StringTagMixin
 {
 
