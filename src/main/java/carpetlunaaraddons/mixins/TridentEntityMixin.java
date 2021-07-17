@@ -55,12 +55,12 @@ public abstract class TridentEntityMixin
     }
 
     @Override
-    protected void destroy() {
+    protected void tickInVoid() {
         int i = this.accessorGetDataTracker().get(this.getLOYALTY());
         if (CarpetLunaarSettings.voidedLoyaltyTridentsReturn && (i > 0))
             this.invokerSetNoClip(true);
         else
-            super.destroy();
+            super.tickInVoid();
     }
 
     public void setStack(ItemStack stack) {

@@ -6,7 +6,7 @@
     "AreaHelperMixin",
     "AnvilScreenHandlerMixin",
     "BootstrapMixin",
-    "StringTagMixin",
+    "NbtStringMixin",
     "DrownedEntityMixin",
     "ItemEntityMixin",
     "MobEntityMixin",
