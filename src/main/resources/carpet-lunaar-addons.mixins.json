@@ -5,7 +5,7 @@
   "mixins": [
     "AnvilScreenHandlerMixin",
     "BootstrapMixin",
-    "StringTagMixin",
+    "NbtStringMixin",
     "DrownedEntityMixin",
     "EnderPearlEntityMixin",
     "MobEntityMixin",

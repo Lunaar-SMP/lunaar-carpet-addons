@@ -111,8 +111,8 @@ public class CarpetLunaarSettings
     public static String commandColors = "ops";
 
     @Rule(
-            desc = "Fixes Chunk Regen due to StringTag writeUTF() not respecting readUTF() Limits",
-            extra = "Thanks FX, fixes ChunkRegen & [MC-134892](https://bugs.mojang.com/browse/MC-134892)",
+            desc = "Fixes Chunk Regen due to NbtString writeUTF() not respecting readUTF() Limits",
+            extra = {"From FX's Carpet-Fixes", "Fixes ChunkRegen & [MC-134892](https://bugs.mojang.com/browse/MC-134892)"},
             category = {BUGFIX, LUNAAR}
     )
     public static boolean chunkRegenFix = false;

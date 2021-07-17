@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.io.DataOutput;
 
 @Mixin(NbtString.class)
-public abstract class StringTagMixin
+public abstract class NbtStringMixin
 {
 
     private static final Logger LOGGER = LogManager.getLogger();
