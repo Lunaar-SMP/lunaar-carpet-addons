@@ -52,7 +52,7 @@ public class TridentDispenserBehavior extends ProjectileDispenserBehavior
         if (CarpetLunaarSettings.dispensersShootTridents)
             super.playSound(pointer);
         else
-            pointer.getWorld().syncWorldEvent(1000, pointer.getBlockPos(), 0);
+            pointer.getWorld().syncWorldEvent(1000, pointer.getPos(), 0);
     }
 
     @Override

@@ -7,8 +7,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockLocating;
 import net.minecraft.world.PortalForcer;
-import net.minecraft.world.PortalUtil;
 import net.minecraft.world.poi.PointOfInterest;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -59,16 +59,16 @@ public class PortalForcerMixin
             method = "method_30479", // This is a lambda
             at = @At(
                     value = "INVOKE",
-                    target = "net/minecraft/world/PortalUtil.getLargestRectangle(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction$Axis;ILnet/minecraft/util/math/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/world/PortalUtil$Rectangle;"
+                    target = "net/minecraft/world/BlockLocating.getLargestRectangle(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction$Axis;ILnet/minecraft/util/math/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/world/BlockLocating$Rectangle;"
             )
     )
-    private PortalUtil.Rectangle dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
-                                             Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
+    private BlockLocating.Rectangle dummyReturn(BlockPos blockPos, Direction.Axis axis1, int i,
+                                                Direction.Axis axis2, int j, Predicate<BlockPos> predicate) {
         if (CarpetLunaarSettings.teleportToPoiWithoutPortals
                 && !this.world.getBlockState(blockPos).contains(Properties.HORIZONTAL_AXIS))
             // The width and height arguments are just random numbers I came up with at the spot,
             // please feel free to make a pull request if you think there are better values for these - Copetan
-            return new PortalUtil.Rectangle(blockPos, 1, 1);
-        return PortalUtil.getLargestRectangle(blockPos, axis1, i, axis2, j, predicate);
+            return new BlockLocating.Rectangle(blockPos, 1, 1);
+        return BlockLocating.getLargestRectangle(blockPos, axis1, i, axis2, j, predicate);
     }
 }
