@@ -4,11 +4,12 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "AnvilScreenHandlerMixin",
+    "AreaHelperMixin",
     "BootstrapMixin",
-    "NbtStringMixin",
     "DrownedEntityMixin",
     "EnderPearlEntityMixin",
     "MobEntityMixin",
+    "NbtStringMixin",
     "PhantomSpawnerMixin",
     "PlayerEntityMixin",
     "PortalForcerMixin",

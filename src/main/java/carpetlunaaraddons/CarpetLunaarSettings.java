@@ -28,7 +28,7 @@ public class CarpetLunaarSettings
     public static boolean forceLoadEnderPearls = false;
 
     @Rule(
-            desc = "Allows tridents thrown by drowned use the enchantments on the trident held by said drowned",
+            desc = "Allows tridents thrown by drowned to use the enchantments on the trident held by said drowned",
             category = {FEATURE, LUNAAR}
     )
     public static boolean drownedUseEnchantedTridents = false;
@@ -69,13 +69,14 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Bots don't appear on scoreboards and do not count in the total if they're not in a team",
-            extra = {"Normal players need to be in a team!"},
+            extra = {"Normal players need to be in a team!", "Based on code by JohanVonElectrum"},
             category = {FEATURE, LUNAAR}
     )
     public static boolean filterBotsInScores = false;
 
     @Rule(
             desc = "The scoreboard total appears on the scoreboard",
+            extra = {"Based on code by JohanVonElectrum"},
             category = {FEATURE, LUNAAR}
     )
     public static boolean totalScore = false;
@@ -96,7 +97,8 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Allows the use of spigot formatting inside of anvils",
-            extra = {"Enable and use the /colors command to see formatting codes you can use", "From FX's WeirdAddons"},
+            extra = {"Enable and use the /colors command to see formatting codes you can use",
+                    "Based on code by Super-Santa, from FX's WeirdAddons"},
             category = {FEATURE, EXPERIMENTAL, LUNAAR}
     )
     public static boolean anvilColorFormatting = false;
@@ -108,7 +110,7 @@ public class CarpetLunaarSettings
             options = {"ops", "true", "false"},
             category = {COMMAND, LUNAAR}
     )
-    public static String commandColors = "ops";
+    public static String commandColors = "true";
 
     @Rule(
             desc = "Fixes Chunk Regen due to NbtString writeUTF() not respecting readUTF() Limits",

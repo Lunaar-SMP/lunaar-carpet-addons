@@ -30,7 +30,7 @@ Prevents ender pearls from getting deleted when they move into unloaded chunks
 * Categories: `EXPERIMENTAL`, `LUNAAR`
 
 ### drownedUseEnchantedTridents
-Allows tridents thrown by drowned use the enchantments on the trident held by said drowned
+Allows tridents thrown by drowned to use the enchantments on the trident held by said drowned
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
@@ -77,6 +77,7 @@ Mobs in death animation do not count towards the mob cap
 ### filterBotsInScores
 Bots don't appear on scoreboards and do not count in the total if they're not in a team
 <br/>This means that normal players need to be in a team!
+<br/>Based on code by [JohanVonElectrum](https://github.com/JohanVonElectrum)
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
@@ -84,6 +85,7 @@ Bots don't appear on scoreboards and do not count in the total if they're not in
 
 ### totalScore
 The scoreboard total appears on the scoreboard
+<br/>Based on code by [JohanVonElectrum](https://github.com/JohanVonElectrum)
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
@@ -99,11 +101,38 @@ Dispensers can shoot tridents
 
 ### doOverspawning
 Reimplements mob overspawning
-<br />From 1.15.2
+<br/>From 1.15.2
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `CREATIVE`, `LUNAAR`
+
+### anvilColorFormatting
+Allows the use of spigot formatting inside of anvils
+<br/>Enable and use the /colors command to see formatting codes you can use
+<br/>Based on code by [Super-Santa](https://github.com/Super-Santa), from [FX's](https://github.com/fxmorin) [WeirdAddons](https://github.com/fxmorin/WeirdAddons)
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `FEATURE`, `EXPERIMENTAL`, `LUNAAR`
+
+### commandColors
+Enables the /colors command
+<br/>Use this command to see formatting codes you can use
+<br/>From [FX's](https://github.com/fxmorin) [WeirdAddons](https://github.com/fxmorin/WeirdAddons)
+* Type: `String`
+* Default value: `true`
+* Suggested options: `true`, `false`, `ops`
+* Categories: `COMMAND`, `LUNAAR`
+
+### chunkRegenFix
+Fixes Chunk Regen due to NbtString writeUTF() not respecting readUTF() Limits
+<br/>From [FX's](https://github.com/fxmorin) [Carpet-Fixes](https://github.com/fxmorin/carpet-fixes)
+<br/>Fixes ChunkRegen & [MC-134892](https://bugs.mojang.com/browse/MC-134892)
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `BUGFIX`, `LUNAAR`
 
 ## License
 This entire project is licensed under [LGPL-3.0](LICENSE), with portions of the code (specifically code for the
