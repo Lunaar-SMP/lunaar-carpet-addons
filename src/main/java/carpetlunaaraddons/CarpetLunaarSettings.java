@@ -1,7 +1,9 @@
 package carpetlunaaraddons;
 
+import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
+import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -118,4 +120,25 @@ public class CarpetLunaarSettings
             category = {BUGFIX, LUNAAR}
     )
     public static boolean chunkRegenFix = false;
+
+    public static class LightLevelValidator extends Validator<Integer> {
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return (newValue >= 0 && newValue < 16) ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a light level from 0 to 15";
+        }
+    }
+
+    @Rule(
+            desc = "Adjusts the maximum light level general hostile mobs can spawn in",
+            options = {"0", "7", "15"},
+            category = {EXPERIMENTAL, LUNAAR},
+            strict = false,
+            validate = LightLevelValidator.class
+    )
+    public static int maxHostileSpawnLightLevel = 7;
 }
