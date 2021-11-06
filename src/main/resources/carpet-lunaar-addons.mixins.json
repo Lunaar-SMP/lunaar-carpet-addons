@@ -18,6 +18,7 @@
     "ServerChunkManagerMixin",
     "ServerScoreboardMixin",
     "ServerWorldMixin",
+    "SlimeEntityMixin",
     "SpawnHelperInfoMixin",
     "SpawnHelperMixin",
     "TridentEntityMixin",

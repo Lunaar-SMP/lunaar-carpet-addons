@@ -41,7 +41,6 @@ public class PortalForcerMixin
                 pointOfInterestStream.filter(pointOfInterestPredicate);
     }
 
-    @SuppressWarnings("UnresolvedMixinReference")
     @Redirect(
             method = "method_30479", // This is a lambda
             at = @At(
@@ -53,7 +52,6 @@ public class PortalForcerMixin
         return DummyGetUtil.dummyGetMethod(blockState, property);
     }
 
-    @SuppressWarnings("UnresolvedMixinReference")
     @Redirect(
             method = "method_30479", // This is a lambda
             at = @At(

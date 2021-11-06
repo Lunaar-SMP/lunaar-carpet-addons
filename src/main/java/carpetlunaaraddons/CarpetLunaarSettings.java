@@ -129,7 +129,25 @@ public class CarpetLunaarSettings
     )
     public static boolean chunkRegenFix = false;
 
-    public static class LightLevelValidator extends Validator<Integer> {
+    @Rule(
+            desc = "Adjusts the maximum light level general hostile mobs can spawn in",
+            extra = {"Note that if the maximum light level mobs can spawn in is set to below 4, they will never be able " +
+                    "to spawn below skylight, since the internal skylight level only ever goes down to 4 at and around midnight"},
+            options = {"0", "7", "15"},
+            category = {EXPERIMENTAL, LUNAAR},
+            strict = false,
+            validate = LightLevelValidator.class
+    )
+    public static int maxHostileSpawnLightLevel = 7;
+
+    @Rule(
+            desc = "Slimes can eat shit",
+            category = {CREATIVE, LUNAAR}
+    )
+    public static boolean disableSlimeSpawning = false;
+
+    public static class LightLevelValidator extends Validator<Integer>
+    {
         @Override
         public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
             return (newValue >= 0 && newValue < 16) ? newValue : null;
@@ -140,13 +158,4 @@ public class CarpetLunaarSettings
             return "You must choose a light level from 0 to 15";
         }
     }
-
-    @Rule(
-            desc = "Adjusts the maximum light level general hostile mobs can spawn in",
-            options = {"0", "7", "15"},
-            category = {EXPERIMENTAL, LUNAAR},
-            strict = false,
-            validate = LightLevelValidator.class
-    )
-    public static int maxHostileSpawnLightLevel = 7;
 }
