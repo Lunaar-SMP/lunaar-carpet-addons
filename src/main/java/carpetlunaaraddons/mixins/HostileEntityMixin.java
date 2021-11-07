@@ -7,27 +7,20 @@ import net.minecraft.world.LightType;
 import net.minecraft.world.ServerWorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Random;
 
 @Mixin(HostileEntity.class)
 public class HostileEntityMixin
 {
-    @Inject(
+    @Redirect(
             method = "isSpawnDark",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/ServerWorldAccess;toServerWorld()Lnet/minecraft/server/world/ServerWorld;"
-            ),
-            cancellable = true
+                    target = "Lnet/minecraft/world/ServerWorldAccess;getLightLevel(Lnet/minecraft/world/LightType;Lnet/minecraft/util/math/BlockPos;)I",
+                    ordinal = 1
+            )
     )
-    private static void checkBlockLightLevel(ServerWorldAccess world, BlockPos pos, Random random,
-                                             CallbackInfoReturnable<Boolean> cir) {
-        if (CarpetLunaarSettings.maxHostileSpawnLightLevel < 7
-                && world.getLightLevel(LightType.BLOCK, pos) > CarpetLunaarSettings.maxHostileSpawnLightLevel) {
-            cir.setReturnValue(false);
-        }
+    private static int blockLightLevelRedirect(ServerWorldAccess world, LightType lightType, BlockPos blockPos) {
+        return Math.max(world.getLightLevel(lightType, blockPos) - CarpetLunaarSettings.maxHostileSpawnLightLevel, 0);
     }
 
     @ModifyArg(

@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.math.GravityField;
+import net.minecraft.world.SpawnDensityCapper;
 import net.minecraft.world.SpawnHelper;
 import net.minecraft.world.chunk.Chunk;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,9 +35,9 @@ public class SpawnHelperMixin
             locals = LocalCapture.CAPTURE_FAILHARD
     )
     private static void entityGetter(int spawningChunkCount, Iterable<Entity> entities,
-                                     SpawnHelper.ChunkSource chunkSource, CallbackInfoReturnable<SpawnHelper.Info> cir,
-                                     GravityField gravityField, Object2IntOpenHashMap<SpawnGroup> object2IntOpenHashMap,
-                                     Iterator<Entity> var5, Entity entity) {
+                                     SpawnHelper.ChunkSource chunkSource, SpawnDensityCapper spawnDensityCapper,
+                                     CallbackInfoReturnable<SpawnHelper.Info> cir, GravityField gravityField,
+                                     Object2IntOpenHashMap<SpawnGroup> object2IntOpenHashMap, Iterator<Entity> var5, Entity entity) {
         if (CarpetLunaarSettings.capIgnoresDeathAnimation)
             SpawnHelperMixin.entity = entity;
     }

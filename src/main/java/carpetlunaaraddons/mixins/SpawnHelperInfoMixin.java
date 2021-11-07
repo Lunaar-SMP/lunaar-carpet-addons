@@ -4,6 +4,7 @@ import carpetlunaaraddons.helpers.SpawnHelperInfoDuckInterface;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.math.GravityField;
+import net.minecraft.world.SpawnDensityCapper;
 import net.minecraft.world.SpawnHelper;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,12 +26,17 @@ public abstract class SpawnHelperInfoMixin implements SpawnHelperInfoDuckInterfa
     @Final
     private GravityField densityField;
 
+    @Shadow
+    @Final
+    private SpawnDensityCapper field_34459;
+
     @Invoker("<init>")
-    static SpawnHelper.Info newInfo(int chunkCount, Object2IntOpenHashMap<SpawnGroup> spawnGroupMap, GravityField gravityField) {
+    static SpawnHelper.Info newInfo(int chunkCount, Object2IntOpenHashMap<SpawnGroup> spawnGroupMap,
+                                    GravityField gravityField, SpawnDensityCapper spawnDensityCapper) {
         throw new AssertionError();
     }
 
     public SpawnHelper.Info copy() {
-        return newInfo(this.spawningChunkCount, this.groupToCount, this.densityField);
+        return newInfo(this.spawningChunkCount, this.groupToCount, this.densityField, this.field_34459);
     }
 }

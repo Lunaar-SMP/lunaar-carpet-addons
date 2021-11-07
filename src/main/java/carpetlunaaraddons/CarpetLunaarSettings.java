@@ -123,17 +123,17 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Adjusts the maximum light level general hostile mobs can spawn in",
-            extra = {"When maxHostileSpawnLightLevel < 7, block light level is used to determine whether the position " +
-                    "is considered \"dark\" or not, while leaving spawn chances at and below the maximum light level intact",
-                    "When maxHostileSpawnLightLevel > 7, the upper bound of the random integer generator is increased " +
-                    "in order to accommodate for higher light levels, thereby affecting mob spawning chances at light " +
-                    "levels > 0 and <= 7, most likely increasing mob spawning chances over vanilla"},
+            extra = {"At maxHostileSpawnLightLevel <= 7, only maximum block light level is modified without changing " +
+                    "the light level spawning chances, emulating mob spawning chances from 1.17.1 and below",
+                    "At every subsequent value maxHostileSpawnLightLevel > 7, the upper bound for the random integer " +
+                    "generator is increased to accommodate for higher light levels, modifying the mob spawning chances " +
+                    "at light levels > 0 and <= 7"},
             options = {"0", "7", "15"},
             category = {EXPERIMENTAL, LUNAAR},
             strict = false,
             validate = LightLevelValidator.class
     )
-    public static int maxHostileSpawnLightLevel = 7;
+    public static int maxHostileSpawnLightLevel = 0;
 
     @Rule(
             desc = "Slimes can eat shit",
