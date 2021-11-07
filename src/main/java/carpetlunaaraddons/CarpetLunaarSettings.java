@@ -121,7 +121,28 @@ public class CarpetLunaarSettings
     )
     public static boolean chunkRegenFix = false;
 
-    public static class LightLevelValidator extends Validator<Integer> {
+    @Rule(
+            desc = "Adjusts the maximum light level general hostile mobs can spawn in",
+            extra = {"When maxHostileSpawnLightLevel < 7, block light level is used to determine whether the position " +
+                    "is considered \"dark\" or not, while leaving spawn chances at and below the maximum light level intact",
+                    "When maxHostileSpawnLightLevel > 7, the upper bound of the random integer generator is increased " +
+                    "in order to accommodate for higher light levels, thereby affecting mob spawning chances at light " +
+                    "levels > 0 and <= 7, most likely increasing mob spawning chances over vanilla"},
+            options = {"0", "7", "15"},
+            category = {EXPERIMENTAL, LUNAAR},
+            strict = false,
+            validate = LightLevelValidator.class
+    )
+    public static int maxHostileSpawnLightLevel = 7;
+
+    @Rule(
+            desc = "Slimes can eat shit",
+            category = {CREATIVE, LUNAAR}
+    )
+    public static boolean disableSlimeSpawning = false;
+
+    public static class LightLevelValidator extends Validator<Integer>
+    {
         @Override
         public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
             return (newValue >= 0 && newValue < 16) ? newValue : null;
@@ -132,13 +153,4 @@ public class CarpetLunaarSettings
             return "You must choose a light level from 0 to 15";
         }
     }
-
-    @Rule(
-            desc = "Adjusts the maximum light level general hostile mobs can spawn in",
-            options = {"0", "7", "15"},
-            category = {EXPERIMENTAL, LUNAAR},
-            strict = false,
-            validate = LightLevelValidator.class
-    )
-    public static int maxHostileSpawnLightLevel = 7;
 }

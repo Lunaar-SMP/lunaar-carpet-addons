@@ -134,6 +134,21 @@ Fixes Chunk Regen due to NbtString writeUTF() not respecting readUTF() Limits
 * Required options: `true`, `false`
 * Categories: `BUGFIX`, `LUNAAR`
 
+### maxHostileSpawnLightLevel
+Adjusts the maximum light level general hostile mobs can spawn in
+<br/>More information [here](/src/main/java/carpetlunaaraddons/CarpetLunaarSettings.java#L132)
+* Type: `int`
+* Default value: `7`
+* Suggested options: `0`, `7`, `15`
+* Categories: `EXPERIMENTAL`, `LUNAAR`
+
+### disableSlimeSpawning
+I hate slimes
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `CREATIVE`, `LUNAAR`
+
 ## License
 This entire project is licensed under [LGPL-3.0](LICENSE), with portions of the code (specifically code for the
 `filterBotsInScores` and the `totalScore` carpet rules) based off of code made by [@JohanVonElectrum](https://github.com/JohanVonElectrum),
