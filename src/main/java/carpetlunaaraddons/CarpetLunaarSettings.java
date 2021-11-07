@@ -131,8 +131,11 @@ public class CarpetLunaarSettings
 
     @Rule(
             desc = "Adjusts the maximum light level general hostile mobs can spawn in",
-            extra = {"Note that if the maximum light level mobs can spawn in is set to below 4, they will never be able " +
-                    "to spawn below skylight, since the internal skylight level only ever goes down to 4 at and around midnight"},
+            extra = {"When maxHostileSpawnLightLevel < 7, block light level is used to determine whether the position " +
+                    "is considered \"dark\" or not, while leaving spawn chances at and below the maximum light level intact",
+                    "When maxHostileSpawnLightLevel > 7, the upper bound of the random integer generator is increased " +
+                    "in order to accommodate for higher light levels, thereby affecting mob spawning chances at light " +
+                    "levels > 0 and <= 7, most likely increasing mob spawning chances over vanilla"},
             options = {"0", "7", "15"},
             category = {EXPERIMENTAL, LUNAAR},
             strict = false,
