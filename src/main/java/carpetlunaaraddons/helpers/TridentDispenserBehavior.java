@@ -25,7 +25,8 @@ public class TridentDispenserBehavior extends ProjectileDispenserBehavior
             ItemDispenserBehavior behavior = new ItemDispenserBehavior();
             Class<?> itemDispenserBehaviorClass = behavior.getClass();
             Class<?>[] args = new Class[]{BlockPointer.class, ItemStack.class};
-            Method reflectedMethod = itemDispenserBehaviorClass.getDeclaredMethod("dispenseSilently", args);
+            String name = FauxDispenserBehavior.class.getDeclaredMethods()[0].getName();
+            Method reflectedMethod = itemDispenserBehaviorClass.getDeclaredMethod(name, args);
             reflectedMethod.setAccessible(true);
             reflectedMethodFunction = ((pointer, stack) -> {
                 try {
@@ -67,4 +68,8 @@ public class TridentDispenserBehavior extends ProjectileDispenserBehavior
         return trident;
     }
 
+    static abstract class FauxDispenserBehavior extends ItemDispenserBehavior
+    {
+        public abstract ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack);
+    }
 }
