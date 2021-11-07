@@ -136,7 +136,7 @@ Fixes Chunk Regen due to NbtString writeUTF() not respecting readUTF() Limits
 
 ### maxHostileSpawnLightLevel
 Adjusts the maximum light level general hostile mobs can spawn in
-<br/>More information [here](/src/main/java/carpetlunaaraddons/CarpetLunaarSettings.java#L132)
+<br/>More information [here](/src/main/java/carpetlunaaraddons/CarpetLunaarSettings.java#L126)
 * Type: `int`
 * Default value: `7`
 * Suggested options: `0`, `7`, `15`
