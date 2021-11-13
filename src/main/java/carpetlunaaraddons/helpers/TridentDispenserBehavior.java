@@ -1,6 +1,7 @@
 package carpetlunaaraddons.helpers;
 
 import carpetlunaaraddons.CarpetLunaarSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.entity.EntityType;
@@ -25,19 +26,20 @@ public class TridentDispenserBehavior extends ProjectileDispenserBehavior
             ItemDispenserBehavior behavior = new ItemDispenserBehavior();
             Class<?> itemDispenserBehaviorClass = behavior.getClass();
             Class<?>[] args = new Class[]{BlockPointer.class, ItemStack.class};
-            String name = FauxDispenserBehavior.class.getDeclaredMethods()[0].getName();
+            String name = FabricLoader.getInstance().getMappingResolver()
+                    .mapMethodName("intermediary", "net.minecraft.class_2347", "method_10135",
+                            "(Lnet/minecraft/class_2342;Lnet/minecraft/class_1799;)Lnet/minecraft/class_1799;");
             Method reflectedMethod = itemDispenserBehaviorClass.getDeclaredMethod(name, args);
             reflectedMethod.setAccessible(true);
             reflectedMethodFunction = ((pointer, stack) -> {
                 try {
                     return (ItemStack) reflectedMethod.invoke(behavior, pointer, stack);
                 } catch (IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
-                return stack;
             });
-        } catch (Throwable e) {
-            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -66,10 +68,5 @@ public class TridentDispenserBehavior extends ProjectileDispenserBehavior
         trident.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
         ((TridentEntityDuckInterface) trident).setStack(stack);
         return trident;
-    }
-
-    static abstract class FauxDispenserBehavior extends ItemDispenserBehavior
-    {
-        public abstract ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack);
     }
 }
