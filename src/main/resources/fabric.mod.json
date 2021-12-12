@@ -18,8 +18,11 @@
 
   "environment": "*",
   "entrypoints": {
+    "mm:early_risers" :[
+      "carpetlunaaraddons.CarpetLunaarExtension::earlyRiser"
+    ],
     "main": [
-      "carpetlunaaraddons.CarpetLunaarExtension"
+      "carpetlunaaraddons.CarpetLunaarExtension::initializeExtension"
     ]
   },
   "mixins": [
