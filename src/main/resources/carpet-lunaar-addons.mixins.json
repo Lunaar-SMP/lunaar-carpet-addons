@@ -9,6 +9,7 @@
     "DrownedEntityMixin",
     "HostileEntityMixin",
     "ItemEntityMixin",
+    "MinecraftServerMixin",
     "MobEntityMixin",
     "NbtStringMixin",
     "PhantomSpawnerMixin",

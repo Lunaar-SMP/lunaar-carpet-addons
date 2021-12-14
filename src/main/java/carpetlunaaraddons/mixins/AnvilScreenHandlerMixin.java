@@ -21,6 +21,5 @@ public abstract class AnvilScreenHandlerMixin
 
         return string;
     }
-
 }
 

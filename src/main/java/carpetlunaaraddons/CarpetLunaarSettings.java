@@ -7,6 +7,7 @@ import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
 
+@SuppressWarnings("CanBeFinal")
 public class CarpetLunaarSettings
 {
     public static final String LUNAAR = "lunaar";
@@ -148,6 +149,12 @@ public class CarpetLunaarSettings
             category = {CREATIVE, LUNAAR}
     )
     public static boolean disableSlimeSpawning = false;
+
+    @Rule(
+            desc = "Phantoms spawn in their own unique spawning cap; not particularly useful unless phantomsCapped is true",
+            category = {FEATURE, EXPERIMENTAL, LUNAAR}
+    )
+    public static boolean phantomsUniqueCap = false;
 
     public static class LightLevelValidator extends Validator<Integer>
     {

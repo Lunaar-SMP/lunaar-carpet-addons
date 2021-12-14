@@ -77,6 +77,7 @@ public abstract class PlayerEntityMixin
             instaKill.accept(target);
             this.accessorGetWorld().playSound(null, this.invokerGetX(), this.invokerGetY(), this.invokerGetZ(),
                     SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, this.getSoundCategory(), 1.0F, 1.0F);
+
             if (this.invokerIsSneaking()) {
                 this.accessorGetWorld().getNonSpectatingEntities(Entity.class,
                         target.getBoundingBox().expand(2.0D, 0.50D, 2.0D)).stream()
@@ -85,6 +86,7 @@ public abstract class PlayerEntityMixin
                 this.accessorGetWorld().playSound(null, this.invokerGetX(), this.invokerGetY(), this.invokerGetZ(),
                         SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, this.getSoundCategory(), 1.0F, 1.0F);
             }
+
             ci.cancel();
         }
     }

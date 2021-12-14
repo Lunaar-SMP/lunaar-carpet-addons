@@ -40,11 +40,12 @@ public abstract class ItemEntityMixin
                 NbtList nbtList = nbtCompound.getCompound("BlockEntityTag").getList("Items", 10);
                 Stream<ItemStack> stream = nbtList.stream().map(NbtCompound.class::cast).map(ItemStack::fromNbt);
                 World world = this.accessorGetWorld();
-                if (!world.isClient)
+                if (!world.isClient) {
                     stream.forEach((itemStack) ->
                             world.spawnEntity(new ItemEntity(world, this.invokerGetX(), this.invokerGetY(),
                                     this.invokerGetZ(), itemStack))
                     );
+                }
             }
         }
     }
